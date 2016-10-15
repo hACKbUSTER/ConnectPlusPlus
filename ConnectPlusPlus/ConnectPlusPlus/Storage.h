@@ -13,9 +13,9 @@ typedef void (^ResultBlock)(NSArray *messages);
 
 @interface Storage : NSObject
 
-+ (void)saveImageMessage:(UIImage *)image withFilename:(NSString *) filename andLongtitude:(float) longtitude andLatitude:(float) latitude andTags:(NSArray *) tags;
++ (void)saveImageMessage:(UIImage *)image withFilename:(NSString *) filename andLongtitude:(double) longtitude andLatitude:(double) latitude andTags:(NSArray *) tags;
 
-+ (void)saveTextMessage:(NSString *)text withLongtitude:(float) longtitude andLatitude:(float) latitude andTags:(NSArray *) tags;
++ (void)saveTextMessage:(NSString *)text withLongtitude:(double) longtitude andLatitude:(double) latitude andTags:(NSArray *) tags;
 
 + (void)getMessages:(NSDictionary *)lowerLeft withUpperRight:(NSDictionary *)upperRight andTags:(NSArray *)tags andCallback:(ResultBlock)callback;
 
