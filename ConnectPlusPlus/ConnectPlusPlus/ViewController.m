@@ -22,7 +22,11 @@
 @property (nonatomic)         CLLocationCoordinate2D currentLocation;
 @property (nonatomic)         MGLCoordinateBounds currentVisibleBounds;
 @property (nonatomic, strong) MGLPointAnnotation *currentUserAnnotation;
+
 @property (nonatomic, strong) NSMutableArray *markerArray;
+
+// Annotation views
+@property (nonatomic, strong) NSMutableArray *markerViewArray;
 
 @property (nonatomic, strong) UIView *bottomToolBarView;
 
@@ -45,6 +49,7 @@
     [super viewDidLoad];
     
     _markerArray = [NSMutableArray array];
+    _markerViewArray = [NSMutableArray array];
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -59,32 +64,6 @@
     _mapView.scrollEnabled = YES;
     _mapView.zoomEnabled = NO;
     _mapView.rotateEnabled = NO;
-    
-    __weak typeof(self) weakSelf = self;
-    // Set the map’s center coordinate and zoom level.
-//    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(59.31, 18.06)
-//                       zoomLevel:1 direction:0 animated:YES completionHandler:^{
-//                           weakSelf.currentUserAnnotation = [[MGLPointAnnotation alloc] init];
-//                           weakSelf.currentUserAnnotation.coordinate = weakSelf.currentLocation;
-//                           [weakSelf.mapView addAnnotation:weakSelf.currentUserAnnotation];
-//                           
-//                           [[AJLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
-//                               NSLog(@"fuck!");
-//                               weakSelf.currentLocation = CLLocationCoordinate2DMake(locationCorrrdinate.latitude, locationCorrrdinate.longitude);
-//                               [weakSelf.mapView setCenterCoordinate:weakSelf.currentLocation
-//                                                   zoomLevel:15
-//                                                    animated:YES];
-//                               weakSelf.currentUserAnnotation.coordinate = locationCorrrdinate;
-//                           } headingBlock:^(CLHeading *heading) {
-//                               weakSelf.cachedHeading = heading;
-//                               CGFloat degrees = fabs(180.0f - heading.trueHeading);
-//                               NSLog(@"fuck!! %f",degrees);
-//                               if (weakSelf.currentPointView) {
-//                                   weakSelf.currentPointView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, degrees/360.0f * M_PI);
-//                               }
-//                               
-//                           }];
-//                       }];
     
     [self.view addSubview:_mapView];
     
@@ -179,14 +158,15 @@
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
               viewControllerForLocation:(CGPoint)location
 {
-    for (MGLPointAnnotation *annotation in self.mapView.annotations)
+    for (MGLAnnotationView *annotationView in self.markerViewArray)
     {
-        MGLAnnotationView *annotationView = (MGLAnnotationView *)[self.mapView viewForAnnotation:annotation];
-        if ([annotationView.layer containsPoint:location])
-        {
-            PointPeekViewController *peek = [[PointPeekViewController alloc] init];
-            peek.view.frame = self.view.frame;
-            return peek;
+        if (annotationView) {
+            if ([annotationView.layer containsPoint:location])
+            {
+                PointPeekViewController *peek = [[PointPeekViewController alloc] init];
+                peek.view.frame = self.view.frame;
+                return peek;
+            }
         }
     }
     
@@ -297,6 +277,12 @@ didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation
         
         annotationView.layer.transform = CATransform3DMakeScale(0.0f, 0.0f, 0.0f);
         [self addScaleForView:annotationView];
+        
+        [_markerViewArray addObject:annotationView];
+        if (_markerViewArray.count > 10) {
+            [self.mapView removeAnnotation:[_markerViewArray objectAtIndex:0]];
+            [_markerViewArray removeObjectAtIndex:0];
+        }
     }
     
     return annotationView;
