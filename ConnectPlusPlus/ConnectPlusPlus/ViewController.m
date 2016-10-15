@@ -75,7 +75,7 @@
     
     _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 110.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarCameraButton.backgroundColor = [UIColor clearColor];
-    [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
+    [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"camera1"] forState:UIControlStateNormal];
     [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
     
     _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
@@ -138,8 +138,8 @@
 {
     MGLPointAnnotation *testMarker = [[MGLPointAnnotation alloc] init];
     
-    CGFloat latitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.latitude - _mapView.visibleCoordinateBounds.sw.latitude) * 0.8f;
-    CGFloat longitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.longitude - _mapView.visibleCoordinateBounds.sw.longitude) * 0.8f;
+    CGFloat latitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.latitude - _mapView.visibleCoordinateBounds.sw.latitude) * 0.5f;
+    CGFloat longitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.longitude - _mapView.visibleCoordinateBounds.sw.longitude) * 0.5f;
     
     CLLocationCoordinate2D t = CLLocationCoordinate2DMake(self.currentLocation.latitude - latitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * latitude_delta,self.currentLocation.longitude - longitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * longitude_delta);
     testMarker.coordinate = t;
