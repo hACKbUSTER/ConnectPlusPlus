@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		505D41321DB1DD4B00A09F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41311DB1DD4B00A09F39 /* main.m */; };
+		505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41341DB1DD4B00A09F39 /* AppDelegate.m */; };
+		505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41371DB1DD4B00A09F39 /* ViewController.m */; };
+		505D413B1DB1DD4B00A09F39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505D41391DB1DD4B00A09F39 /* Main.storyboard */; };
+		505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 505D413C1DB1DD4B00A09F39 /* Assets.xcassets */; };
+		505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */; };
+		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		505D41311DB1DD4B00A09F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		505D41331DB1DD4B00A09F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		505D41341DB1DD4B00A09F39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		505D41361DB1DD4B00A09F39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		505D41371DB1DD4B00A09F39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		505D413A1DB1DD4B00A09F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		505D413C1DB1DD4B00A09F39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		505D413F1DB1DD4B00A09F39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		505D41411DB1DD4B00A09F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.release.xcconfig"; sourceTree = "<group>"; };
+		C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ConnectPlusPlus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		505D412A1DB1DD4B00A09F39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E2C0469DC745F2B1BE3AE9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		505D41241DB1DD4B00A09F39 = {
+			isa = PBXGroup;
+			children = (
+				505D412F1DB1DD4B00A09F39 /* ConnectPlusPlus */,
+				505D412E1DB1DD4B00A09F39 /* Products */,
+				CA442F89F2B959604CC890BB /* Pods */,
+				4E2C0469DC745F2B1BE3AE9D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		505D412E1DB1DD4B00A09F39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		505D412F1DB1DD4B00A09F39 /* ConnectPlusPlus */ = {
+			isa = PBXGroup;
+			children = (
+				505D41331DB1DD4B00A09F39 /* AppDelegate.h */,
+				505D41341DB1DD4B00A09F39 /* AppDelegate.m */,
+				505D41361DB1DD4B00A09F39 /* ViewController.h */,
+				505D41371DB1DD4B00A09F39 /* ViewController.m */,
+				505D41391DB1DD4B00A09F39 /* Main.storyboard */,
+				505D413C1DB1DD4B00A09F39 /* Assets.xcassets */,
+				505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */,
+				505D41411DB1DD4B00A09F39 /* Info.plist */,
+				505D41301DB1DD4B00A09F39 /* Supporting Files */,
+			);
+			path = ConnectPlusPlus;
+			sourceTree = "<group>";
+		};
+		505D41301DB1DD4B00A09F39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				505D41311DB1DD4B00A09F39 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA442F89F2B959604CC890BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */,
+				9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		505D412C1DB1DD4B00A09F39 /* ConnectPlusPlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 505D41441DB1DD4B00A09F39 /* Build configuration list for PBXNativeTarget "ConnectPlusPlus" */;
+			buildPhases = (
+				1514A323909632DB86A6325A /* [CP] Check Pods Manifest.lock */,
+				505D41291DB1DD4B00A09F39 /* Sources */,
+				505D412A1DB1DD4B00A09F39 /* Frameworks */,
+				505D412B1DB1DD4B00A09F39 /* Resources */,
+				8D4DF024860B9530A5E86D1B /* [CP] Embed Pods Frameworks */,
+				CC8D063F030A83FC6EE5BBF4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConnectPlusPlus;
+			productName = ConnectPlusPlus;
+			productReference = 505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		505D41251DB1DD4B00A09F39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = hackbuster;
+				TargetAttributes = {
+					505D412C1DB1DD4B00A09F39 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Q8H99663FH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 505D41281DB1DD4B00A09F39 /* Build configuration list for PBXProject "ConnectPlusPlus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 505D41241DB1DD4B00A09F39;
+			productRefGroup = 505D412E1DB1DD4B00A09F39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				505D412C1DB1DD4B00A09F39 /* ConnectPlusPlus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		505D412B1DB1DD4B00A09F39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */,
+				505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */,
+				505D413B1DB1DD4B00A09F39 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1514A323909632DB86A6325A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8D4DF024860B9530A5E86D1B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC8D063F030A83FC6EE5BBF4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		505D41291DB1DD4B00A09F39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */,
+				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
+				505D41321DB1DD4B00A09F39 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		505D41391DB1DD4B00A09F39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				505D413A1DB1DD4B00A09F39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				505D413F1DB1DD4B00A09F39 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		505D41421DB1DD4B00A09F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		505D41431DB1DD4B00A09F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		505D41451DB1DD4B00A09F39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8H99663FH;
+				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hack.buster.ConnectPlusPlus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		505D41461DB1DD4B00A09F39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8H99663FH;
+				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = hack.buster.ConnectPlusPlus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		505D41281DB1DD4B00A09F39 /* Build configuration list for PBXProject "ConnectPlusPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				505D41421DB1DD4B00A09F39 /* Debug */,
+				505D41431DB1DD4B00A09F39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		505D41441DB1DD4B00A09F39 /* Build configuration list for PBXNativeTarget "ConnectPlusPlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				505D41451DB1DD4B00A09F39 /* Debug */,
+				505D41461DB1DD4B00A09F39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 505D41251DB1DD4B00A09F39 /* Project object */;
+}
