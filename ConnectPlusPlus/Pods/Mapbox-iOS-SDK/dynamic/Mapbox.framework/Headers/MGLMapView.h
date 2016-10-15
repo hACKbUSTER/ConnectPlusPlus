@@ -185,7 +185,7 @@ IB_DESIGNABLE
  */
 @property (nonatomic, readonly) UIImageView *logoView;
 
-/** 
+/**
  A view showing legally required copyright notices and telemetry settings,
  positioned at the bottom-right of the map view.
  
