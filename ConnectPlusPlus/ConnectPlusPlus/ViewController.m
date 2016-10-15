@@ -212,7 +212,7 @@
     for (MGLAnnotationView *annotationView in self.markerViewArray)
     {
         if (annotationView) {
-            if ([annotationView.layer containsPoint:location])
+            if ([annotationView.layer containsPoint:[self.mapView.layer convertPoint:location toLayer:annotationView.layer]])
             {
                 PointPeekViewController *peek = [[PointPeekViewController alloc] init];
                 peek.view.frame = self.view.frame;
@@ -227,7 +227,7 @@
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
      commitViewController:(UIViewController *)viewControllerToCommit
 {
-    
+    [self showViewController:viewControllerToCommit sender:self];
 }
 
 #pragma mark - MGLMapViewDelegate Methods
