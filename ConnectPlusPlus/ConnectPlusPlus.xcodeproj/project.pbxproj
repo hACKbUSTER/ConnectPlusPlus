@@ -32,6 +32,7 @@
 		505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41631DB28FF500A09F39 /* TagTableViewCell.m */; };
 		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
 		79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AD4CD91DB25E6200A944ED /* Storage.m */; };
+		9258089F1DB28417007E6248 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258089E1DB28417007E6248 /* NetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		505D41631DB28FF500A09F39 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
 		79AD4CD81DB25E6200A944ED /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		79AD4CD91DB25E6200A944ED /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
+		9258089D1DB28417007E6248 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Services/NetworkManager.h; sourceTree = "<group>"; };
+		9258089E1DB28417007E6248 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = Services/NetworkManager.m; sourceTree = "<group>"; };
 		9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.release.xcconfig"; sourceTree = "<group>"; };
 		C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ConnectPlusPlus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				79AD4CD91DB25E6200A944ED /* Storage.m */,
 				505D41481DB210AD00A09F39 /* AJLocationManager.h */,
 				505D41491DB210AD00A09F39 /* AJLocationManager.m */,
+				9258089D1DB28417007E6248 /* NetworkManager.h */,
+				9258089E1DB28417007E6248 /* NetworkManager.m */,
 				505D415F1DB28F3C00A09F39 /* DefaultsManager.h */,
 				505D41601DB28F3C00A09F39 /* DefaultsManager.m */,
 			);
@@ -353,6 +358,7 @@
 			files = (
 				0D37F8D11DB29DB6009473C7 /* TagShowTableView.m in Sources */,
 				0D37F8D51DB29EA4009473C7 /* TagShowTableViewCell.m in Sources */,
+				9258089F1DB28417007E6248 /* NetworkManager.m in Sources */,
 				0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */,
 				0D37F8CB1DB2916D009473C7 /* NowOnTapAnimatingView.m in Sources */,
 				0D37F8C71DB28E71009473C7 /* CreateTextViewController.m in Sources */,
@@ -432,6 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -473,6 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

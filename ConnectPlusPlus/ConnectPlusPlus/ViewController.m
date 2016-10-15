@@ -76,6 +76,7 @@
     _mapView.scrollEnabled = YES;
     _mapView.zoomEnabled = NO;
     _mapView.rotateEnabled = NO;
+    _mapView.pitchEnabled = NO;
     
     [self.view addSubview:_mapView];
     
