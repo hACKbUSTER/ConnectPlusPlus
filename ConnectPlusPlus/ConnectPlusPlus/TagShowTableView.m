@@ -8,13 +8,56 @@
 
 #import "TagShowTableView.h"
 #import "TagShowTableViewCell.h"
+#import "NetworkManager.h"
 
 @interface TagShowTableView ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic) NSMutableArray* tagsData;
+@property (nonatomic) NSMutableArray* categoriesData;
 
 @end
 
 @implementation TagShowTableView
-
+- (id) initWithFrame:(CGRect)frame NowOnTap:(NowOnTapAnimatingView *)view
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.separatorColor = [UIColor clearColor];
+        self.allowsSelection = NO;
+        [self registerNib:[UINib nibWithNibName:@"TagShowTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TagShowTableViewCell"];
+        self.delegate = self;
+        self.dataSource = self;
+        
+        
+        self.nowOnTapView = view;
+        
+        
+        // NETWORK TASK
+        if (self.nowOnTapView.sourceImage)
+        {
+            [[NetworkManager sharedManager] getJSONWithImageData:UIImageJPEGRepresentation(self.nowOnTapView.sourceImage, 0.7f) success:^(id obj)
+             {
+                 _tagsData = [obj objectForKey:@"tags"];
+                 _categoriesData = [obj objectForKey:@"categories"];
+                 if (_tagsData || _categoriesData)
+                 {
+                     [self reloadData];
+                 }
+             } failure:^(NSError *err)
+             {
+                 //WHO CARES ERROR
+//                 NSLog(err.debugDescription);
+             }];
+        }else if (self.nowOnTapView.sourceText)
+        {
+            
+        }
+    }
+    return self;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,6 +71,7 @@
         [self registerNib:[UINib nibWithNibName:@"TagShowTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TagShowTableViewCell"];
         self.delegate = self;
         self.dataSource = self;
+        
     }
     return self;
 }
@@ -44,7 +88,30 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TagShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TagShowTableViewCell"];
-    [cell setTagString:@"Apple"];
+    
+    NSString *tag = @"";
+    
+    if (_tagsData == nil && _categoriesData == nil)
+    {
+        
+    }
+    else if (_tagsData != nil && _categoriesData == nil)
+    {
+        tag = [[_tagsData objectAtIndex:indexPath.row] objectForKey:@"name"];
+    }
+    else if (_tagsData == nil && _categoriesData != nil)
+    {
+        tag = [[_categoriesData objectAtIndex:indexPath.row] objectForKey:@"name"];
+    }
+    else
+    {
+        tag = indexPath.row < _tagsData.count ?  [[_tagsData objectAtIndex:indexPath.row] objectForKey:@"name"] :  [[_categoriesData objectAtIndex:indexPath.row] objectForKey:@"name"];
+    }
+
+    
+
+//    NSString *tag = [[_tagsData objectAtIndex:indexPath.row] objectForKey:@"name"];
+    [cell setTagString:tag];
     
     return cell;
 }
@@ -52,7 +119,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return (_tagsData == nil? 0 : _tagsData.count) + (_categoriesData == nil? 0 : _categoriesData.count);
 }
 
 /*

@@ -10,6 +10,7 @@
 
 #import "NowOnTapAnimatingView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "NetworkManager.h"
 #import "TagShowTableView.h"
 
 
@@ -20,6 +21,8 @@
 @property (nonatomic,strong) TagShowTableView *tagTableView;
 @property (nonatomic,strong) UIButton *cancelButton;
 @property (nonatomic,strong) UIButton *confirmButton;
+
+@property (nonatomic) NSMutableArray *tagsData;
 
 @end
 
@@ -84,7 +87,7 @@ completion:^(BOOL fin)
              
              
              
-             _tagTableView = [[TagShowTableView alloc] initWithFrame:CGRectMake(0, 0, _visualEffectView.frame.size.width, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT)];
+             _tagTableView = [[TagShowTableView alloc] initWithFrame:CGRectMake(0, 0, _visualEffectView.frame.size.width, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT) NowOnTap:self];
              
              
              
