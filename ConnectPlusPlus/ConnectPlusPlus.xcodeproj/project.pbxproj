@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */; };
+		0D37F8C31DB2567A009473C7 /* PointPeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */; };
 		505D41321DB1DD4B00A09F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41311DB1DD4B00A09F39 /* main.m */; };
 		505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41341DB1DD4B00A09F39 /* AppDelegate.m */; };
 		505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41371DB1DD4B00A09F39 /* ViewController.m */; };
@@ -21,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointPeekViewController.h; sourceTree = "<group>"; };
+		0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointPeekViewController.m; sourceTree = "<group>"; };
+		0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointPeekViewController.xib; sourceTree = "<group>"; };
 		505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505D41311DB1DD4B00A09F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		505D41331DB1DD4B00A09F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,6 +97,9 @@
 				505D41341DB1DD4B00A09F39 /* AppDelegate.m */,
 				505D41361DB1DD4B00A09F39 /* ViewController.h */,
 				505D41371DB1DD4B00A09F39 /* ViewController.m */,
+				0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */,
+				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
+				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
 				505D41391DB1DD4B00A09F39 /* Main.storyboard */,
 				505D413C1DB1DD4B00A09F39 /* Assets.xcassets */,
 				505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */,
@@ -178,7 +186,7 @@
 				TargetAttributes = {
 					505D412C1DB1DD4B00A09F39 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Q8H99663FH;
+						DevelopmentTeam = 9QJ8M25J77;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -206,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D37F8C31DB2567A009473C7 /* PointPeekViewController.xib in Resources */,
 				505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */,
 				505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */,
 				505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */,
@@ -268,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */,
 				505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */,
 				505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */,
 				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
@@ -391,7 +401,7 @@
 			baseConfigurationReference = CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q8H99663FH;
+				DEVELOPMENT_TEAM = 9QJ8M25J77;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -405,7 +415,7 @@
 			baseConfigurationReference = 9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q8H99663FH;
+				DEVELOPMENT_TEAM = 9QJ8M25J77;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

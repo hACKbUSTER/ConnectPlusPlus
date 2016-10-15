@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Connect++</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -24,6 +26,10 @@
 	<string>pk.eyJ1Ijoic2VyZ2lvY2hhbiIsImEiOiJjaWk5eDN1YTkwMGY1dXBsenliM2dpMGliIn0.SkCLCo63mrZTUl0LxNivVA</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Cottons-Light.otf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -34,17 +40,13 @@
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Cottons-Light.otf</string>
-	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
