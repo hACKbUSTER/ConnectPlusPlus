@@ -136,14 +136,20 @@ completion:^(BOOL fin)
 
 - (void) confirmButtonPressed
 {
-    NSArray *tags = [[NSArray alloc] initWithArray:_tagTableView.categoriesData];
-    tags = [tags arrayByAddingObjectsFromArray:_tagTableView.tagsData];
+    NSMutableArray *tags = [NSMutableArray array];
+    for (id item in _tagTableView.categoriesData) {
+        [tags addObject:[item objectForKey:@"name"]];
+    }
+    for (id item in _tagTableView.tagsData) {
+        [tags addObject:[item objectForKey:@"name"]];
+    }
     
     if (_sourceImage != nil) {
         [Storage saveImageMessage:_sourceImage withFilename:@"fuck.jpg" andLongtitude:[DefaultsManager sharedManager].currentLocation.longitude andLatitude:[DefaultsManager sharedManager].currentLocation.latitude andTags:tags];
     } else {
         [Storage saveTextMessage:_sourceText withLongtitude:[DefaultsManager sharedManager].currentLocation.longitude andLatitude:[DefaultsManager sharedManager].currentLocation.latitude andTags:tags];
     }
+    [[self parentViewController] dismissViewControllerAnimated:YES completion: nil];
 }
 
 - (UIViewController *)parentViewController {
