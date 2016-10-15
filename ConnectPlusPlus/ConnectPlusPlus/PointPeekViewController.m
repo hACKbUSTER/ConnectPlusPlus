@@ -26,6 +26,9 @@
     {
         NSString *url = [self.messageDict objectForKey:@"image"];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.connetContentView.frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.layer.masksToBounds = YES;
+        
         [self.connetContentView addSubview:imageView];
         
         [imageView yy_setImageWithURL:[NSURL URLWithString:url] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize)
