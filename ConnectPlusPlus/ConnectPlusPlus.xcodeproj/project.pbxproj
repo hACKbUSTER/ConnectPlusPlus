@@ -105,11 +105,6 @@
 				505D41341DB1DD4B00A09F39 /* AppDelegate.m */,
 				505D41361DB1DD4B00A09F39 /* ViewController.h */,
 				505D41371DB1DD4B00A09F39 /* ViewController.m */,
-				0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */,
-				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
-				79AD4CD81DB25E6200A944ED /* Storage.h */,
-				79AD4CD91DB25E6200A944ED /* Storage.m */,
-				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
 				505D41391DB1DD4B00A09F39 /* Main.storyboard */,
 				505D413C1DB1DD4B00A09F39 /* Assets.xcassets */,
 				505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */,
@@ -130,6 +125,8 @@
 		505D41471DB20F0A00A09F39 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				79AD4CD81DB25E6200A944ED /* Storage.h */,
+				79AD4CD91DB25E6200A944ED /* Storage.m */,
 				505D41481DB210AD00A09F39 /* AJLocationManager.h */,
 				505D41491DB210AD00A09F39 /* AJLocationManager.m */,
 			);
@@ -156,9 +153,9 @@
 		505D41541DB2818800A09F39 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
 				0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */,
 				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
-				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

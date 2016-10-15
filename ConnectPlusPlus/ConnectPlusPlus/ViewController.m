@@ -16,7 +16,10 @@
 
 
 @interface ViewController () <MGLMapViewDelegate,UIViewControllerPreviewingDelegate>
-
+{
+    // Timer for 轮询
+    NSTimer *requestTimer;
+}
 
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic)         CLLocationCoordinate2D currentLocation;
@@ -127,9 +130,20 @@
     {
         [self registerForPreviewingWithDelegate:self sourceView:self.view];
     }
+    
+    requestTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(requestUpdate) userInfo:nil repeats:YES];
 }
 
--(float)randomFloatBetween:(float)num1 andLargerFloat:(float)num2
+#pragma mark - Timer Methods
+
+- (void)requestUpdate
+{
+    // Execute per second
+}
+
+#pragma mark - For test creation
+
+- (float)randomFloatBetween:(float)num1 andLargerFloat:(float)num2
 {
     int startVal = num1*10000;
     int endVal = num2*10000;
@@ -138,6 +152,21 @@
     float a = randomValue;
     
     return(a /10000.0);
+}
+
+- (void)addNewMarkerAtCoordinate:(CLLocationCoordinate2D)coordinate categories:(NSString *)categorieString mainTag:(NSString *)mainTag
+{
+    MGLPointAnnotation *testMarker = [[MGLPointAnnotation alloc] init];
+    testMarker.coordinate = coordinate;
+    testMarker.title = mainTag;
+    testMarker.subtitle = categorieString;
+    
+    [self.mapView addAnnotation:testMarker];
+    [_markerArray addObject:testMarker];
+    if (_markerArray.count > 10) {
+        [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
+        [_markerArray removeObjectAtIndex:0];
+    }
 }
 
 - (void)tap:(UIGestureRecognizer *)gesture
@@ -150,6 +179,7 @@
     CLLocationCoordinate2D t = CLLocationCoordinate2DMake(self.currentLocation.latitude - latitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * latitude_delta,self.currentLocation.longitude - longitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * longitude_delta);
     testMarker.coordinate = t;
     testMarker.title = @"TAG";
+    testMarker.subtitle = @"traffic/indooractivity";
     
     [self.mapView addAnnotation:testMarker];
     [_markerArray addObject:testMarker];
