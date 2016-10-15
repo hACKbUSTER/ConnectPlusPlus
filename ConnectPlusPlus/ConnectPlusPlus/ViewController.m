@@ -50,6 +50,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     
     _markerArray = [NSMutableArray array];
     _markerViewArray = [NSMutableArray array];
@@ -196,7 +197,7 @@
 
 - (void)cameraButtonPressed:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"CallCamera" sender:self];
 }
 
 - (void)microButtonPressed:(id)sender
