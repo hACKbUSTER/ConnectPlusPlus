@@ -10,6 +10,7 @@
 #import <Waver/Waver.h>
 #import "UIView+ViewFrameGeometry.h"
 #import "VoiceKit.h"
+#import "NowOnTapAnimatingView.h"
 
 @interface MicrophoneViewController ()
 
@@ -40,8 +41,13 @@
     [self.view addSubview:_waver];
     self.waver.level = 0.0f;
     
-    [VoiceKit sharedInstance].successBlock = ^(id object) {
-        
+    [VoiceKit sharedInstance].successBlock = ^(id object)
+    {
+        NSLog(@"FUCKKKKK %@",object);
+        NowOnTapAnimatingView *nowOnTapView = [[NowOnTapAnimatingView alloc] initWithFrame:self.view.frame];
+        nowOnTapView.sourceText = (NSString *)object;
+        [self.view addSubview:nowOnTapView];
+
     };
     
     [VoiceKit sharedInstance].volumeChangeBlock = ^(int volume) {

@@ -22,6 +22,6 @@
 //@property (nonatomic, weak) id <NowOnTapAnimatingViewDelegate> delegate;
 
 @property (nonatomic,strong) UIImage *sourceImage;
-@property (nonatomic,strong) UIImage *sourceText;
+@property (nonatomic,strong) NSString *sourceText;
 
 @end
