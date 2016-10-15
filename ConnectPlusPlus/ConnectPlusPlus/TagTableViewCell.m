@@ -10,6 +10,7 @@
 #import <YYImage/YYImage.h>
 #import <YYWebImage/YYWebImage.h>
 #import "UIView+ViewFrameGeometry.h"
+#import "NetworkManager.h"
 
 @interface TagTableViewCell()
 
@@ -46,13 +47,18 @@
 
 - (void)setupWithTagString:(NSString *)tagString {
     self.titleLabel.text = [NSString stringWithFormat:@"#%@", tagString];
-    [self.backgroundImageView yy_setImageWithURL:[NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/3/3c/Peak_hour_traffic_in_melbourne.jpg"] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        
-    } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
-        return image;
-    } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
-        
+    [[NetworkManager sharedManager] getImageFromBingWithString:tagString success:^(id object) {
+        [self.backgroundImageView yy_setImageWithURL:[NSURL URLWithString:object] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            
+        } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+            return image;
+        } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+            
+        }];
+    } failure:^(NSError *error) {
+        self.backgroundImageView.backgroundColor = [UIColor colorWithRed:216.f/255.f green:216.f/255.f blue:216.f/255.f alpha:1.f];
     }];
+    
 }
 
 - (void)layoutSubviews

@@ -72,8 +72,8 @@
     TagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
         cell = [[TagTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        [cell setupWithTagString:self.models[indexPath.row]];
     }
+    [cell setupWithTagString:self.models[indexPath.row]];
     return cell;
 }
 
