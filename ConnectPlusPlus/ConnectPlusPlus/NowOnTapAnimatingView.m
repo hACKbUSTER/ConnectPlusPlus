@@ -6,12 +6,20 @@
 //  Copyright © 2016年 hackbuster. All rights reserved.
 //
 
+#define NOW_ON_TAP_BUTTONS_HEIGHT 60
+
 #import "NowOnTapAnimatingView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TagShowTableView.h"
+
+
 
 @interface NowOnTapAnimatingView ()
 
 @property (nonatomic,strong) UIVisualEffectView *visualEffectView;
+@property (nonatomic,strong) TagShowTableView *tagTableView;
+@property (nonatomic,strong) UIButton *cancelButton;
+@property (nonatomic,strong) UIButton *confirmButton;
 
 @end
 
@@ -73,6 +81,16 @@ completion:^(BOOL fin)
              blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
              _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
              _visualEffectView.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, self.frame.size.height/2);
+             
+             _tagTableView = [[TagShowTableView alloc] initWithFrame:CGRectMake(0, 0, _visualEffectView.frame.size.width, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT)];
+             _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0,  _visualEffectView.frame.size.width/2, NOW_ON_TAP_BUTTONS_HEIGHT)];
+             _confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(0,  _visualEffectView.frame.size.width/2,  _visualEffectView.frame.size.width/2, NOW_ON_TAP_BUTTONS_HEIGHT)];
+             
+             [_visualEffectView addSubview:_tagTableView];
+             [_visualEffectView addSubview:_cancelButton];
+             [_visualEffectView addSubview:_confirmButton];
+             
+             
          }completion:^(BOOL fin)
          {
              [self addSubview:_visualEffectView];
