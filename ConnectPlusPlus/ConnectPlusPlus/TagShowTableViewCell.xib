@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-Yo-RYQ">
-                        <rect key="frame" x="8" y="8" width="252" height="48"/>
+                        <rect key="frame" x="16" y="8" width="244" height="48"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                     <constraint firstItem="7s3-Gq-UBE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2yk-pY-OEC"/>
                     <constraint firstItem="VcM-Yo-RYQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Z2h-yB-0UB"/>
                     <constraint firstItem="kRu-X6-xuB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-4" id="aUc-jX-nQy"/>
-                    <constraint firstItem="VcM-Yo-RYQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="az3-RC-TyI"/>
+                    <constraint firstItem="VcM-Yo-RYQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="az3-RC-TyI"/>
                     <constraint firstItem="kRu-X6-xuB" firstAttribute="leading" secondItem="VcM-Yo-RYQ" secondAttribute="trailing" constant="8" id="cuK-dp-xOv"/>
                     <constraint firstItem="7s3-Gq-UBE" firstAttribute="top" secondItem="VcM-Yo-RYQ" secondAttribute="bottom" constant="8" id="f4o-Kh-2AP"/>
                     <constraint firstAttribute="trailing" secondItem="7s3-Gq-UBE" secondAttribute="trailing" id="fLK-pa-bmQ"/>

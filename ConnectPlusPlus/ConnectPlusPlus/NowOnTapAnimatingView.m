@@ -82,7 +82,25 @@ completion:^(BOOL fin)
              _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
              _visualEffectView.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, self.frame.size.height/2);
              
+             
+             
              _tagTableView = [[TagShowTableView alloc] initWithFrame:CGRectMake(0, 0, _visualEffectView.frame.size.width, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT)];
+             
+             
+             
+             CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+             gradientLayer.frame = _tagTableView.bounds;
+             gradientLayer.colors = @[
+                                      (__bridge id)[UIColor clearColor].CGColor,
+                                      (__bridge id)[UIColor blackColor].CGColor,
+                                      (__bridge id)[UIColor blackColor].CGColor,
+                                      (__bridge id)[UIColor clearColor].CGColor                             ];
+             gradientLayer.locations = @[@0.0,@0.1,@0.8,@1.0];
+             UIView *tagTableContainerView = [[UIView alloc] initWithFrame:_tagTableView.frame];
+             [tagTableContainerView.layer setMask:gradientLayer];
+             [tagTableContainerView addSubview:_tagTableView];
+             [_visualEffectView addSubview:tagTableContainerView];
+             
              _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT,  _visualEffectView.frame.size.width/2, NOW_ON_TAP_BUTTONS_HEIGHT)];
               [_cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
              [_cancelButton setImage:[UIImage imageNamed:@"closeButton"] forState:UIControlStateNormal];
@@ -90,7 +108,6 @@ completion:^(BOOL fin)
              [_confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
              [_confirmButton setImage:[UIImage imageNamed:@"confirmButton"] forState:UIControlStateNormal];
              
-             [_visualEffectView addSubview:_tagTableView];
              [_visualEffectView addSubview:_cancelButton];
              [_visualEffectView addSubview:_confirmButton];
              

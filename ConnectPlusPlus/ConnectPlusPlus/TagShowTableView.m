@@ -44,7 +44,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TagShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TagShowTableViewCell"];
-    [cell setTagString:@"Test Tag"];
+    [cell setTagString:@"Apple"];
     
     return cell;
 }
@@ -52,7 +52,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 /*
