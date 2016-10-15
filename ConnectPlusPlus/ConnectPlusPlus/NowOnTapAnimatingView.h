@@ -21,4 +21,7 @@
 @property (nonatomic,strong) UIImageView *screenshotView;
 //@property (nonatomic, weak) id <NowOnTapAnimatingViewDelegate> delegate;
 
+@property (nonatomic,strong) UIImage *sourceImage;
+@property (nonatomic,strong) UIImage *sourceText;
+
 @end

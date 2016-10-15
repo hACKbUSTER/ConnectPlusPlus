@@ -13,7 +13,7 @@
 #import "NetworkManager.h"
 
 @interface TagTableViewCell()
-
+@property (nonatomic, strong) NSString *tagString;
 @property (nonatomic, strong) YYAnimatedImageView *backgroundImageView;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -46,6 +46,11 @@
 }
 
 - (void)setupWithTagString:(NSString *)tagString {
+    if ([_tagString isEqualToString:tagString]) {
+        return ;
+    }
+    _tagString = tagString;
+    self.backgroundImageView.image = nil;
     self.titleLabel.text = [NSString stringWithFormat:@"#%@", tagString];
     [[NetworkManager sharedManager] getImageFromBingWithString:tagString success:^(id object) {
         [self.backgroundImageView yy_setImageWithURL:[NSURL URLWithString:object] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {

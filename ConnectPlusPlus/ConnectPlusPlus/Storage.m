@@ -27,7 +27,7 @@
     }
 }
 
-+ (void)saveData:(NSString *)text withImage:(NSString *)image andLongtitude:(float)longtitude andLatitude:(float)latitude andTags:(NSString *)tags
++ (void)saveData:(NSString *)text withImage:(NSString *)image andLongtitude:(double)longtitude andLatitude:(double)latitude andTags:(NSString *)tags
 {
     NSNumber *hasImage;
     
@@ -46,14 +46,14 @@
     [message setObject:hasImage forKey:@"hasImage"];
     [message setObject:text forKey:@"text"];
     [message setObject:image forKey:@"image"];
-    [message setObject:[NSNumber numberWithFloat:longtitude] forKey:@"longtitude"];
-    [message setObject:[NSNumber numberWithFloat:latitude] forKey:@"latitude"];
+    [message setObject:[NSNumber numberWithDouble:longtitude] forKey:@"longtitude"];
+    [message setObject:[NSNumber numberWithDouble:latitude] forKey:@"latitude"];
     [message setObject:tags forKey:@"tags"];
     [message saveInBackground];
     NSLog(@"Save data successfully");
 }
 
-+ (void)saveImageMessage:(UIImage *)image withFilename:(NSString *)filename andLongtitude:(float)longtitude andLatitude:(float)latitude andTags:(NSArray *)tags
++ (void)saveImageMessage:(UIImage *)image withFilename:(NSString *)filename andLongtitude:(double)longtitude andLatitude:(double)latitude andTags:(NSArray *)tags
 {
     NSData *data = UIImageJPEGRepresentation(image, 1.0);
     AVFile *file = [AVFile fileWithName:filename data:data];
@@ -64,7 +64,7 @@
     }];
 }
 
-+ (void)saveTextMessage:(NSString *)text withLongtitude:(float)longtitude andLatitude:(float)latitude andTags:(NSArray *)tags
++ (void)saveTextMessage:(NSString *)text withLongtitude:(double)longtitude andLatitude:(double)latitude andTags:(NSArray *)tags
 {
     NSString *serialized_tags = [Storage serializeTags:tags];
     [Storage saveData:text withImage:nil andLongtitude:longtitude andLatitude:latitude andTags:serialized_tags];
@@ -107,6 +107,7 @@
         NSMutableArray *rtn = [[NSMutableArray alloc] init];
         NSLog(@"yangsiyu-from-server: %lu", (unsigned long)[res count]);
         for (AVObject *each in res) {
+            NSString *objectId = each.objectId;
             NSNumber *hasImage = each[@"hasImage"];
             NSString *text = each[@"text"];
             NSString *image = each[@"image"];
@@ -114,6 +115,7 @@
             NSNumber *latitude = each[@"latitude"];
             NSArray *tags = [Storage parseTags:each[@"tags"]];
             NSDictionary *dict = @{
+                @"objectId": objectId,
                 @"hasImage": hasImage,
                 @"text": text,
                 @"image": image,
@@ -135,8 +137,8 @@
         NSLog(@"yangsiyu-before-filter: %lu", (unsigned long)[messages count]);
         for (NSDictionary *message in messages)
         {
-            if ([Storage isInRange:message withLowerLeft:lowerLeft andUpperRight:upperRight])
-                if ([Storage isSubscribed:message withSubscribedTags:tags] > 0)
+            if ([Storage isInRange:message withLowerLeft:lowerLeft andUpperRight:upperRight] == YES)
+                //if ([Storage isSubscribed:message withSubscribedTags:tags] > 0)
             {
                 [rtn addObject:message];
             }
@@ -148,7 +150,7 @@
 
 + (BOOL)isInRange:(NSDictionary *)message withLowerLeft:(NSDictionary *)lowerLeft andUpperRight:(NSDictionary *)upperRight
 {
-    if (message[@"longtitude"] >= lowerLeft[@"longtitude"] && message[@"latitude"] >= lowerLeft[@"latitude"] && message[@"longtitude"] <= upperRight[@"longtitude"] && message[@"latitude"] <= upperRight[@"latitude"])
+    if ([message[@"longtitude"] doubleValue] > [lowerLeft[@"longtitude"] doubleValue] && [message[@"latitude"] doubleValue] > [lowerLeft[@"latitude"] doubleValue] && [message[@"longtitude"] doubleValue] < [upperRight[@"longtitude"] doubleValue] && [message[@"latitude"] doubleValue] < [upperRight[@"latitude"] doubleValue])
     {
         return YES;
     }

@@ -121,6 +121,7 @@
                 // 请求 NetworkManager
                 
                 NowOnTapAnimatingView *nowOnTapView = [[NowOnTapAnimatingView alloc] initWithFrame:self.view.frame];
+                nowOnTapView.sourceImage = image;
                 [self.view addSubview:nowOnTapView];
             }];
         }

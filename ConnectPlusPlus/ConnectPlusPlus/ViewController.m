@@ -14,6 +14,7 @@
 #import "CreateTextViewController.h"
 #import "TagManageTableView.h"
 #import "NetworkManager.h"
+#import "Storage.h"
 
 @import Mapbox;
 
@@ -51,6 +52,9 @@
 @property (nonatomic, strong) CLHeading *cachedHeading;
 
 @property (nonatomic, strong) TagManageTableView *tagTableView;
+
+// Message Points
+@property (nonatomic, strong) NSMutableArray *messagePoints;
 
 @end
 
@@ -169,6 +173,78 @@
 - (void)requestUpdate
 {
     // Execute per second
+    //[self addingFakeMessages];
+    [self getAndRenderPoints];
+}
+
+#pragma mark - Update Message Points
+
+- (void)getAndRenderPoints
+{
+    if (_messagePoints == nil)
+    {
+        _messagePoints = [[NSMutableArray alloc] init];
+    }
+    
+    // Generate Bounds
+    NSDictionary *lowerLeft = @{
+                                @"longtitude": [NSNumber numberWithDouble:_currentVisibleBounds.sw.longitude],
+                                @"latitude": [NSNumber numberWithDouble:_currentVisibleBounds.sw.latitude]
+                                };
+    NSDictionary *upperRight = @{
+                                 @"longtitude": [NSNumber numberWithDouble:_currentVisibleBounds.ne.longitude],
+                                 @"latitude": [NSNumber numberWithDouble:_currentVisibleBounds.ne.latitude]
+                                 };
+    
+    [Storage getMessages:lowerLeft withUpperRight:upperRight andTags:nil andCallback:^(NSArray *messages) {
+        for (NSDictionary *message in messages) {
+            BOOL flag = NO;
+            NSString *tmp = message[@"objectId"];
+            NSUInteger size = [_messagePoints count];
+            for (int i = 0; i < size; i++) {
+                NSString *t = _messagePoints[i][@"objectId"];
+                if ([tmp isEqualToString:t])
+                {
+                    flag = YES;
+                    break;
+                }
+            }
+            if (flag == NO)
+            {
+                NSString *categorieString = [self generateCategorieString:message[@"tags"]];
+                NSString *mainTag = @"TAG";//TODO
+                [self addNewMarkerAtCoordinate:CLLocationCoordinate2DMake([message[@"latitude"] doubleValue], [message[@"longtitude"] doubleValue]) categories:categorieString mainTag:mainTag];
+                [_messagePoints addObject:message];
+            }
+        }
+        NSLog(@"yangsiyu-rendered-count: %lu", (unsigned long)[_messagePoints count]);
+    }];
+}
+
+- (NSString *)generateCategorieString:(NSArray *)tags
+{
+    NSString *rtn = @"";
+    for (NSString *tag in tags) {
+        rtn = [NSString stringWithFormat:@"%@#%@", rtn, tag];
+    }
+    return rtn;
+}
+
+- (void)addingFakeMessages
+{
+    NSArray *tags1 = @[@"aaa", @"bbb", @"ccc"];
+    //float longtitude = [self randomFloatBetween:_mapView.visibleCoordinateBounds.sw.longitude andLargerFloat:_mapView.visibleCoordinateBounds.ne.longitude];
+    //float latitude = [self randomFloatBetween:_mapView.visibleCoordinateBounds.sw.latitude andLargerFloat:_mapView.visibleCoordinateBounds.ne.latitude];
+    
+    CGFloat latitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.latitude - _mapView.visibleCoordinateBounds.sw.latitude) * 0.5f;
+    CGFloat longitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.longitude - _mapView.visibleCoordinateBounds.sw.longitude) * 0.5f;
+    
+    CLLocationCoordinate2D t = CLLocationCoordinate2DMake(self.currentLocation.latitude - latitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * latitude_delta,self.currentLocation.longitude - longitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * longitude_delta);
+    
+    [Storage saveTextMessage:@"test message" withLongtitude:t.longitude andLatitude:t.latitude andTags:tags1];
+    //longtitude = [self randomFloatBetween:_mapView.visibleCoordinateBounds.sw.longitude andLargerFloat:_mapView.visibleCoordinateBounds.ne.longitude];
+    //latitude = [self randomFloatBetween:_mapView.visibleCoordinateBounds.sw.latitude andLargerFloat:_mapView.visibleCoordinateBounds.ne.latitude];
+    //[Storage saveImageMessage:[UIImage imageNamed:@"Profile"] withFilename:@"test.jpg" andLongtitude:longtitude andLatitude:latitude andTags:tags1];
 }
 
 #pragma mark - For test creation
