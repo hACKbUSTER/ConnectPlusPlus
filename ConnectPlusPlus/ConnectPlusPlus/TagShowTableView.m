@@ -24,6 +24,7 @@
         self.backgroundView.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
         self.separatorColor = [UIColor clearColor];
+        self.allowsSelection = NO;
         [self registerNib:[UINib nibWithNibName:@"TagShowTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TagShowTableViewCell"];
         self.delegate = self;
         self.dataSource = self;
@@ -43,18 +44,15 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TagShowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TagShowTableViewCell"];
+    [cell setTagString:@"Apple"];
     
-    if (cell == nil)
-    {
-        cell = [[TagShowTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TagShowTableViewCell"];
-    }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 4;
 }
 
 /*

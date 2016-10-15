@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface TagShowTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addMinusTagButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *hyperLinksScrollView;
+
+@property (strong, nonatomic, setter=setTagString:) NSString *tagString;
+@property (nonatomic, setter=setIsAdded:) BOOL isAdded;
+
+- (void)setTagString:(NSString*)tagString;
+- (void)setIsAdded:(BOOL)isAdded;
 
 @end

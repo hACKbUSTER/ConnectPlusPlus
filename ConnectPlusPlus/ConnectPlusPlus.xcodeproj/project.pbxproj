@@ -15,6 +15,7 @@
 		0D37F8D11DB29DB6009473C7 /* TagShowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8D01DB29DB6009473C7 /* TagShowTableView.m */; };
 		0D37F8D51DB29EA4009473C7 /* TagShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */; };
 		0D37F8D61DB29EA4009473C7 /* TagShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */; };
+		0D37F8D91DB2B6B3009473C7 /* tagShowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8D81DB2B6B3009473C7 /* tagShowButton.m */; };
 		505D41321DB1DD4B00A09F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41311DB1DD4B00A09F39 /* main.m */; };
 		505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41341DB1DD4B00A09F39 /* AppDelegate.m */; };
 		505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41371DB1DD4B00A09F39 /* ViewController.m */; };
@@ -60,6 +61,8 @@
 		0D37F8D21DB29EA4009473C7 /* TagShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagShowTableViewCell.h; sourceTree = "<group>"; };
 		0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagShowTableViewCell.m; sourceTree = "<group>"; };
 		0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagShowTableViewCell.xib; sourceTree = "<group>"; };
+		0D37F8D71DB2B6B3009473C7 /* tagShowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tagShowButton.h; sourceTree = "<group>"; };
+		0D37F8D81DB2B6B3009473C7 /* tagShowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tagShowButton.m; sourceTree = "<group>"; };
 		505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505D41311DB1DD4B00A09F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		505D41331DB1DD4B00A09F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				92B373E51DB2A7D1002BA9C4 /* TagTableViewFooter.m */,
 				0D37F8CF1DB29DB6009473C7 /* TagShowTableView.h */,
 				0D37F8D01DB29DB6009473C7 /* TagShowTableView.m */,
+				0D37F8D71DB2B6B3009473C7 /* tagShowButton.h */,
+				0D37F8D81DB2B6B3009473C7 /* tagShowButton.m */,
 				0D37F8D21DB29EA4009473C7 /* TagShowTableViewCell.h */,
 				0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */,
 				0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */,
@@ -413,6 +418,7 @@
 				505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */,
 				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
 				505D41581DB281B100A09F39 /* TagManageTableView.m in Sources */,
+				0D37F8D91DB2B6B3009473C7 /* tagShowButton.m in Sources */,
 				505D41321DB1DD4B00A09F39 /* main.m in Sources */,
 				505D415B1DB286E500A09F39 /* CameraViewController.m in Sources */,
 				505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */,
