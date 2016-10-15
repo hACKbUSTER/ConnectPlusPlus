@@ -55,7 +55,8 @@
     
     NSURL *styleURL = [NSURL URLWithString:@"mapbox://styles/sergiochan/ciuaw89t4001p2io9pvhfsk3p"];
     _mapView = [[MGLMapView alloc] initWithFrame:self.view.bounds styleURL:styleURL];
-    
+    _mapView.tintColor = [UIColor whiteColor];
+
     _mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     // Set the delegate property of our map view to `self` after instantiating it.
     _mapView.delegate = self;
@@ -67,6 +68,8 @@
     
     [self.view addSubview:_mapView];
     
+//    UIView *view = [_mapView viewForAnnotation:_mapView.userLocation];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [_mapView addGestureRecognizer:tap];
     
@@ -76,11 +79,13 @@
     _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 110.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarCameraButton.backgroundColor = [UIColor clearColor];
     [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"camera1"] forState:UIControlStateNormal];
+    [_bottomToolBarCameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
     
     _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarMicroButton.backgroundColor = [UIColor clearColor];
     [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"micphone"] forState:UIControlStateNormal];
+    [_bottomToolBarMicroButton addTarget:self action:@selector(microButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolBarView addSubview:_bottomToolBarMicroButton];
     
     [self.view addSubview:_bottomToolBarView];
@@ -96,10 +101,11 @@
     _topBarListButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 52.0f, 25.5f, 50.0f, 50.0f)];
     _topBarListButton.backgroundColor = [UIColor clearColor];
     [_topBarListButton setImage:[UIImage imageNamed:@"list"] forState:UIControlStateNormal];
+    [_topBarListButton addTarget:self action:@selector(barListButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_topBarView addSubview:_topBarListButton];
     
     _topBarTitleView = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 200.0f, 40.0f)];
-    _topBarTitleView.text = @"C o n n e c t + +";
+    _topBarTitleView.text = @"Connect ++";
     _topBarTitleView.textColor = [UIColor whiteColor];
     _topBarTitleView.font = [UIFont fontWithName:@"TT Cottons Light DEMO" size:30.0f];
     _topBarTitleView.textAlignment = NSTextAlignmentCenter;
@@ -153,6 +159,21 @@
     }
 }
 
+- (void)barListButtonPressed:(id)sender
+{
+    
+}
+
+- (void)cameraButtonPressed:(id)sender
+{
+    
+}
+
+- (void)microButtonPressed:(id)sender
+{
+    
+}
+
 #pragma mark - UIViewControllerPreviewingDelegate
 
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
@@ -184,31 +205,27 @@
 - (void)mapView:(MGLMapView *)mapView didUpdateUserLocation:(nullable MGLUserLocation *)userLocation
 {
     self.currentLocation = userLocation.location.coordinate;
-    NSLog(@"$$$%f",userLocation.heading.trueHeading);
+    NSLog(@"***** %f",userLocation.heading.trueHeading);
 }
 
 // 这里是所见区域更新的回调方法，需要在这里重新请求界面上的数据点
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     _currentVisibleBounds = mapView.visibleCoordinateBounds;
+//    
+//    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((mapView.visibleCoordinateBounds.ne.latitude + mapView.visibleCoordinateBounds.sw.latitude)/2.0f, (mapView.visibleCoordinateBounds.ne.longitude + mapView.visibleCoordinateBounds.sw.longitude)/2.0f);
     
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((mapView.visibleCoordinateBounds.ne.latitude + mapView.visibleCoordinateBounds.sw.latitude)/2.0f, (mapView.visibleCoordinateBounds.ne.longitude + mapView.visibleCoordinateBounds.sw.longitude)/2.0f);
-    
-    NSLog(@"regionDidChange! : %f,%f",center.latitude,center.longitude);
-    
-//    [[AJLocationManager shareLocation] startLocation];
+//    NSLog(@"regionDidChange! ");
 }
 
 
 - (void)mapViewDidFinishRenderingFrame:(MGLMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
     if (fullyRendered) {
-        //        [[AJLocationManager shareLocation] startLocation];
     }
 }
 
-- (void)mapView:(nonnull MGLMapView *)mapView
-didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation
+- (void)mapView:(nonnull MGLMapView *)mapView didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation
 {
     
 }
