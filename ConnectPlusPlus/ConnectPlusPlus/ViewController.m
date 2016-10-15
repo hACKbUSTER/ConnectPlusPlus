@@ -11,6 +11,7 @@
 #import "UIView+ViewFrameGeometry.h"
 
 #import "PointPeekViewController.h"
+#import "CreateTextViewController.h"
 #import "TagManageTableView.h"
 
 @import Mapbox;

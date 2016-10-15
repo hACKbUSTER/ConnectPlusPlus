@@ -24,8 +24,12 @@
 	<true/>
 	<key>MGLMapboxAccessToken</key>
 	<string>pk.eyJ1Ijoic2VyZ2lvY2hhbiIsImEiOiJjaWk5eDN1YTkwMGY1dXBsenliM2dpMGliIn0.SkCLCo63mrZTUl0LxNivVA</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Use Camera</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Use Micphone</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Cottons-Light.otf</string>
