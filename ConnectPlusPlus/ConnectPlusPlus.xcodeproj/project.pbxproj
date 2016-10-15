@@ -21,6 +21,9 @@
 		505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 505D41521DB2310C00A09F39 /* Cottons-Light.otf */; };
 		505D41581DB281B100A09F39 /* TagManageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41571DB281B100A09F39 /* TagManageTableView.m */; };
 		505D415B1DB286E500A09F39 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D415A1DB286E500A09F39 /* CameraViewController.m */; };
+		505D415E1DB28EE700A09F39 /* MicrophoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */; };
+		505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41601DB28F3C00A09F39 /* DefaultsManager.m */; };
+		505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41631DB28FF500A09F39 /* TagTableViewCell.m */; };
 		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
 		79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AD4CD91DB25E6200A944ED /* Storage.m */; };
 /* End PBXBuildFile section */
@@ -49,6 +52,12 @@
 		505D41571DB281B100A09F39 /* TagManageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManageTableView.m; sourceTree = "<group>"; };
 		505D41591DB286E500A09F39 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
 		505D415A1DB286E500A09F39 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		505D415C1DB28EE700A09F39 /* MicrophoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicrophoneViewController.h; sourceTree = "<group>"; };
+		505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MicrophoneViewController.m; sourceTree = "<group>"; };
+		505D415F1DB28F3C00A09F39 /* DefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsManager.h; sourceTree = "<group>"; };
+		505D41601DB28F3C00A09F39 /* DefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsManager.m; sourceTree = "<group>"; };
+		505D41621DB28FF500A09F39 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
+		505D41631DB28FF500A09F39 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
 		79AD4CD81DB25E6200A944ED /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		79AD4CD91DB25E6200A944ED /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +141,8 @@
 				79AD4CD91DB25E6200A944ED /* Storage.m */,
 				505D41481DB210AD00A09F39 /* AJLocationManager.h */,
 				505D41491DB210AD00A09F39 /* AJLocationManager.m */,
+				505D415F1DB28F3C00A09F39 /* DefaultsManager.h */,
+				505D41601DB28F3C00A09F39 /* DefaultsManager.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -161,6 +172,8 @@
 				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
 				505D41591DB286E500A09F39 /* CameraViewController.h */,
 				505D415A1DB286E500A09F39 /* CameraViewController.m */,
+				505D415C1DB28EE700A09F39 /* MicrophoneViewController.h */,
+				505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +183,8 @@
 			children = (
 				505D41561DB281B100A09F39 /* TagManageTableView.h */,
 				505D41571DB281B100A09F39 /* TagManageTableView.m */,
+				505D41621DB28FF500A09F39 /* TagTableViewCell.h */,
+				505D41631DB28FF500A09F39 /* TagTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -217,7 +232,7 @@
 				TargetAttributes = {
 					505D412C1DB1DD4B00A09F39 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9QJ8M25J77;
+						DevelopmentTeam = Q8H99663FH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -310,13 +325,16 @@
 			files = (
 				0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */,
 				505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */,
+				505D415E1DB28EE700A09F39 /* MicrophoneViewController.m in Sources */,
 				505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */,
 				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
 				505D41581DB281B100A09F39 /* TagManageTableView.m in Sources */,
 				505D41321DB1DD4B00A09F39 /* main.m in Sources */,
 				505D415B1DB286E500A09F39 /* CameraViewController.m in Sources */,
+				505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */,
 				505D41501DB22F1100A09F39 /* UIView+ViewFrameGeometry.m in Sources */,
 				79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */,
+				505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +453,7 @@
 			baseConfigurationReference = CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9QJ8M25J77;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -449,7 +467,7 @@
 			baseConfigurationReference = 9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9QJ8M25J77;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -15,6 +15,7 @@ pod 'AVOSCloud'
 pod 'AVOSCloudIM'
 
 pod 'LLSimpleCamera', '~> 4.1'
+pod 'Waver', '~> 0.2.0'
 
 pod 'Mapbox-iOS-SDK', '~> 3.3.4'
 

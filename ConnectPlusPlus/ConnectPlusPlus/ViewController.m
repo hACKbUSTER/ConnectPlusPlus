@@ -11,6 +11,7 @@
 #import "UIView+ViewFrameGeometry.h"
 
 #import "PointPeekViewController.h"
+#import "TagManageTableView.h"
 
 @import Mapbox;
 
@@ -19,6 +20,8 @@
 {
     // Timer for 轮询
     NSTimer *requestTimer;
+    
+    UIImageView *profileImageView;
 }
 
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -37,12 +40,15 @@
 @property (nonatomic, strong) UIButton *bottomToolBarMicroButton;
 
 @property (nonatomic, strong) UIButton *topBarListButton;
+@property (nonatomic, strong) UIButton *topBarAddTagButton;
 
 @property (nonatomic, strong) UIView *topBarView;
 @property (nonatomic, strong) UILabel *topBarTitleView;
 
 @property (nonatomic, strong) MGLAnnotationView *currentPointView;
 @property (nonatomic, strong) CLHeading *cachedHeading;
+
+@property (nonatomic, strong) TagManageTableView *tagTableView;
 
 @end
 
@@ -94,6 +100,22 @@
     
     [self.view addSubview:_bottomToolBarView];
     
+    [self initTopBarView];
+    
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
+    
+    self.tagTableView = [[TagManageTableView alloc] initWithFrame:CGRectMake(0.0f, -(ScreenHeight - _topBarView.height), ScreenWidth, ScreenHeight - _topBarView.height)];
+
+    [self.view addSubview:_tagTableView];
+    
+    requestTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(requestUpdate) userInfo:nil repeats:YES];
+}
+
+- (void)initTopBarView
+{
     _topBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, 80.0f)];
     _topBarView.backgroundColor = [UIColor clearColor];
     
@@ -117,7 +139,7 @@
     
     [_topBarView addSubview:_topBarTitleView];
     
-    UIImageView *profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20.0f, 35.0f, 30.0f, 30.0f)];
+    profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10.0f, 35.0f, 30.0f, 30.0f)];
     profileImageView.image = [UIImage imageNamed:@"Profile"];
     profileImageView.layer.cornerRadius = 15.0f;
     profileImageView.layer.masksToBounds = YES;
@@ -125,14 +147,17 @@
     profileImageView.layer.borderWidth = 1.0f;
     
     [_topBarView addSubview:profileImageView];
+    
+    self.topBarAddTagButton = [[UIButton alloc] initWithFrame:CGRectMake(2.0f, 25.0f, 50.0f, 50.0f)];
+    _topBarAddTagButton.backgroundColor = [UIColor clearColor];
+    [_topBarAddTagButton setImage:[UIImage imageNamed:@"addTag"] forState:UIControlStateNormal];
+    [_topBarAddTagButton addTarget:self action:@selector(addButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    _topBarAddTagButton.alpha = 0.0f;
+    _topBarAddTagButton.hidden = YES;
+    
+    [_topBarView addSubview:_topBarAddTagButton];
+    
     [self.view addSubview:_topBarView];
-    
-    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
-    {
-        [self registerForPreviewingWithDelegate:self sourceView:self.view];
-    }
-    
-    requestTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(requestUpdate) userInfo:nil repeats:YES];
 }
 
 #pragma mark - Timer Methods
@@ -190,9 +215,36 @@
     }
 }
 
+- (void)addButtonPressed:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"shouldAddTag" object:nil];
+}
+
 - (void)barListButtonPressed:(id)sender
 {
-    
+    if (_topBarView.top > 100.0f) {
+        [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _topBarView.top = 0.0f;
+            _tagTableView.top = -(ScreenHeight - _topBarView.height);
+            profileImageView.alpha = 1.0f;
+            _topBarAddTagButton.alpha = 0.0f;
+            _bottomToolBarView.top = ScreenHeight - _bottomToolBarView.height;
+        } completion:^(BOOL finished) {
+            _topBarAddTagButton.hidden = YES;
+        }];
+    } else {
+        _topBarAddTagButton.hidden = NO;
+        _topBarAddTagButton.alpha = 0.0f;
+        [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            _topBarView.top = ScreenHeight - _topBarView.height;
+            _tagTableView.top = 0.0f;
+            profileImageView.alpha = 0.0f;
+            _topBarAddTagButton.alpha = 1.0f;
+            _bottomToolBarView.top = ScreenHeight;
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
 }
 
 - (void)cameraButtonPressed:(id)sender
