@@ -47,4 +47,35 @@
                 }] resume];
 }
 
+- (void)getImageFromBingWithString:(NSString *)string
+                           success:(successWithObjectBlock)onSuccess
+                           failure:(failErrorBlock)onFailure
+{
+    NSDictionary *URLParameters = @{
+                                    @"q":string,
+                                    @"mkt":@"en-us",
+                                    @"safeSearch":@"strict",
+                                    @"imageType":@"photo",
+                                    @"size":@"Wallpaper"
+                                    };
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] requestWithMethod:@"GET"
+                                                                                 URLString:kBingImageSearchURL
+                                                                                parameters:URLParameters error:nil];
+    
+    [request setValue:kBingImageSearchKey forHTTPHeaderField:@"Ocp-Apim-Subscription-Key"];
+    
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[manager dataTaskWithRequest:request
+                completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+                    if (error) {
+                        onFailure(error);
+                    } else {
+                        NSArray *valueArray = [responseObject objectForKey:@"value"];
+                        onSuccess([[valueArray objectAtIndex:0] objectForKey:@"contentUrl"]);
+                    }
+                }] resume];
+
+}
+
 @end
