@@ -30,6 +30,16 @@
 		505D415E1DB28EE700A09F39 /* MicrophoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */; };
 		505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41601DB28F3C00A09F39 /* DefaultsManager.m */; };
 		505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41631DB28FF500A09F39 /* TagTableViewCell.m */; };
+		505D41661DB2AB7700A09F39 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41651DB2AB7700A09F39 /* iflyMSC.framework */; };
+		505D41681DB2AB8900A09F39 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41671DB2AB8900A09F39 /* CoreTelephony.framework */; };
+		505D416A1DB2AB9300A09F39 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41691DB2AB9300A09F39 /* AVFoundation.framework */; };
+		505D416C1DB2AB9900A09F39 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D416B1DB2AB9900A09F39 /* AudioToolbox.framework */; };
+		505D416E1DB2ABA300A09F39 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D416D1DB2ABA300A09F39 /* SystemConfiguration.framework */; };
+		505D41701DB2ABAC00A09F39 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D416F1DB2ABAC00A09F39 /* libz.tbd */; };
+		505D41721DB2ABB700A09F39 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41711DB2ABB700A09F39 /* QuartzCore.framework */; };
+		505D41741DB2ABC000A09F39 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41731DB2ABC000A09F39 /* CoreGraphics.framework */; };
+		505D41771DB2ABF600A09F39 /* VoiceKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41761DB2ABF600A09F39 /* VoiceKit.m */; };
+		505D41791DB2AF1E00A09F39 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D41781DB2AF1E00A09F39 /* AddressBook.framework */; };
 		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
 		79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AD4CD91DB25E6200A944ED /* Storage.m */; };
 		9258089F1DB28417007E6248 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258089E1DB28417007E6248 /* NetworkManager.m */; };
@@ -76,6 +86,17 @@
 		505D41601DB28F3C00A09F39 /* DefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsManager.m; sourceTree = "<group>"; };
 		505D41621DB28FF500A09F39 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
 		505D41631DB28FF500A09F39 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
+		505D41651DB2AB7700A09F39 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		505D41671DB2AB8900A09F39 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		505D41691DB2AB9300A09F39 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		505D416B1DB2AB9900A09F39 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		505D416D1DB2ABA300A09F39 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		505D416F1DB2ABAC00A09F39 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		505D41711DB2ABB700A09F39 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		505D41731DB2ABC000A09F39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		505D41751DB2ABF600A09F39 /* VoiceKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceKit.h; sourceTree = "<group>"; };
+		505D41761DB2ABF600A09F39 /* VoiceKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceKit.m; sourceTree = "<group>"; };
+		505D41781DB2AF1E00A09F39 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		79AD4CD81DB25E6200A944ED /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		79AD4CD91DB25E6200A944ED /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9258089D1DB28417007E6248 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Services/NetworkManager.h; sourceTree = "<group>"; };
@@ -92,7 +113,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505D41791DB2AF1E00A09F39 /* AddressBook.framework in Frameworks */,
+				505D41741DB2ABC000A09F39 /* CoreGraphics.framework in Frameworks */,
+				505D41721DB2ABB700A09F39 /* QuartzCore.framework in Frameworks */,
+				505D41701DB2ABAC00A09F39 /* libz.tbd in Frameworks */,
+				505D416E1DB2ABA300A09F39 /* SystemConfiguration.framework in Frameworks */,
+				505D416C1DB2AB9900A09F39 /* AudioToolbox.framework in Frameworks */,
+				505D416A1DB2AB9300A09F39 /* AVFoundation.framework in Frameworks */,
+				505D41681DB2AB8900A09F39 /* CoreTelephony.framework in Frameworks */,
 				505D414C1DB210BC00A09F39 /* CoreLocation.framework in Frameworks */,
+				505D41661DB2AB7700A09F39 /* iflyMSC.framework in Frameworks */,
 				70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +133,15 @@
 		4E2C0469DC745F2B1BE3AE9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				505D41781DB2AF1E00A09F39 /* AddressBook.framework */,
+				505D41731DB2ABC000A09F39 /* CoreGraphics.framework */,
+				505D41711DB2ABB700A09F39 /* QuartzCore.framework */,
+				505D416F1DB2ABAC00A09F39 /* libz.tbd */,
+				505D416D1DB2ABA300A09F39 /* SystemConfiguration.framework */,
+				505D416B1DB2AB9900A09F39 /* AudioToolbox.framework */,
+				505D41691DB2AB9300A09F39 /* AVFoundation.framework */,
+				505D41671DB2AB8900A09F39 /* CoreTelephony.framework */,
+				505D41651DB2AB7700A09F39 /* iflyMSC.framework */,
 				505D414B1DB210BC00A09F39 /* CoreLocation.framework */,
 				C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */,
 			);
@@ -165,6 +204,8 @@
 				9258089E1DB28417007E6248 /* NetworkManager.m */,
 				505D415F1DB28F3C00A09F39 /* DefaultsManager.h */,
 				505D41601DB28F3C00A09F39 /* DefaultsManager.m */,
+				505D41751DB2ABF600A09F39 /* VoiceKit.h */,
+				505D41761DB2ABF600A09F39 /* VoiceKit.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -379,6 +420,7 @@
 				92B373E61DB2A7D1002BA9C4 /* TagTableViewFooter.m in Sources */,
 				79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */,
 				505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */,
+				505D41771DB2ABF600A09F39 /* VoiceKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +543,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BJJYLFU3B7;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -516,6 +562,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = BJJYLFU3B7;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

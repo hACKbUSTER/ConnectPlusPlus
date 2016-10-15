@@ -78,6 +78,7 @@
     _mapView.zoomEnabled = NO;
     _mapView.rotateEnabled = NO;
     _mapView.pitchEnabled = NO;
+    _mapView.zoomLevel = 15.0f;
     
     [self.view addSubview:_mapView];
     
@@ -257,7 +258,7 @@
 
 - (void)microButtonPressed:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"CallMicrophone" sender:self];
 }
 
 #pragma mark - UIViewControllerPreviewingDelegate
