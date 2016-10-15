@@ -13,6 +13,7 @@
 #import "PointPeekViewController.h"
 #import "CreateTextViewController.h"
 #import "TagManageTableView.h"
+#import "NetworkManager.h"
 
 @import Mapbox;
 

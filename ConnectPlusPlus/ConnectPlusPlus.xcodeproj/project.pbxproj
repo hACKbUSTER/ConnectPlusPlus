@@ -12,6 +12,9 @@
 		0D37F8C71DB28E71009473C7 /* CreateTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8C51DB28E71009473C7 /* CreateTextViewController.m */; };
 		0D37F8C81DB28E71009473C7 /* CreateTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8C61DB28E71009473C7 /* CreateTextViewController.xib */; };
 		0D37F8CB1DB2916D009473C7 /* NowOnTapAnimatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */; };
+		0D37F8D11DB29DB6009473C7 /* TagShowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8D01DB29DB6009473C7 /* TagShowTableView.m */; };
+		0D37F8D51DB29EA4009473C7 /* TagShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */; };
+		0D37F8D61DB29EA4009473C7 /* TagShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */; };
 		505D41321DB1DD4B00A09F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41311DB1DD4B00A09F39 /* main.m */; };
 		505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41341DB1DD4B00A09F39 /* AppDelegate.m */; };
 		505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41371DB1DD4B00A09F39 /* ViewController.m */; };
@@ -42,6 +45,11 @@
 		0D37F8C61DB28E71009473C7 /* CreateTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateTextViewController.xib; sourceTree = "<group>"; };
 		0D37F8C91DB2916D009473C7 /* NowOnTapAnimatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowOnTapAnimatingView.h; sourceTree = "<group>"; };
 		0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowOnTapAnimatingView.m; sourceTree = "<group>"; };
+		0D37F8CF1DB29DB6009473C7 /* TagShowTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagShowTableView.h; sourceTree = "<group>"; };
+		0D37F8D01DB29DB6009473C7 /* TagShowTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagShowTableView.m; sourceTree = "<group>"; };
+		0D37F8D21DB29EA4009473C7 /* TagShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagShowTableViewCell.h; sourceTree = "<group>"; };
+		0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagShowTableViewCell.m; sourceTree = "<group>"; };
+		0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagShowTableViewCell.xib; sourceTree = "<group>"; };
 		505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505D41311DB1DD4B00A09F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		505D41331DB1DD4B00A09F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -208,6 +216,11 @@
 				0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */,
 				92B373E41DB2A7D1002BA9C4 /* TagTableViewFooter.h */,
 				92B373E51DB2A7D1002BA9C4 /* TagTableViewFooter.m */,
+				0D37F8CF1DB29DB6009473C7 /* TagShowTableView.h */,
+				0D37F8D01DB29DB6009473C7 /* TagShowTableView.m */,
+				0D37F8D21DB29EA4009473C7 /* TagShowTableViewCell.h */,
+				0D37F8D31DB29EA4009473C7 /* TagShowTableViewCell.m */,
+				0D37F8D41DB29EA4009473C7 /* TagShowTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -255,7 +268,7 @@
 				TargetAttributes = {
 					505D412C1DB1DD4B00A09F39 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = BJJYLFU3B7;
+						DevelopmentTeam = Q8H99663FH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -286,6 +299,7 @@
 				0D37F8C31DB2567A009473C7 /* PointPeekViewController.xib in Resources */,
 				505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */,
 				505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */,
+				0D37F8D61DB29EA4009473C7 /* TagShowTableViewCell.xib in Resources */,
 				0D37F8C81DB28E71009473C7 /* CreateTextViewController.xib in Resources */,
 				505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */,
 				505D413B1DB1DD4B00A09F39 /* Main.storyboard in Resources */,
@@ -347,6 +361,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D37F8D11DB29DB6009473C7 /* TagShowTableView.m in Sources */,
+				0D37F8D51DB29EA4009473C7 /* TagShowTableViewCell.m in Sources */,
 				9258089F1DB28417007E6248 /* NetworkManager.m in Sources */,
 				0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */,
 				0D37F8CB1DB2916D009473C7 /* NowOnTapAnimatingView.m in Sources */,
@@ -483,7 +499,7 @@
 			baseConfigurationReference = CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BJJYLFU3B7;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -498,7 +514,7 @@
 			baseConfigurationReference = 9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BJJYLFU3B7;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConnectPlusPlus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
