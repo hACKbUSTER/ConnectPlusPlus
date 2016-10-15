@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeAgoLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
 
+@property (nonatomic, strong) NSDictionary *messageDict;
+
 @end

@@ -12,7 +12,8 @@
 static const NSString* kIFlyAppId = @"58027389";
 
 @interface VoiceKit() <IFlySpeechRecognizerDelegate>
-@property (nonatomic, retain) IFlySpeechRecognizer* speechRecognizer;
+
+@property (nonatomic, strong) IFlySpeechUnderstander *speechRecognizer;
 
 @end
 
@@ -33,7 +34,7 @@ static const NSString* kIFlyAppId = @"58027389";
 {
     self = [super init];
     if (self) {
-        [self initService];
+//        [self initService];
     }
     return self;
 }
@@ -47,7 +48,7 @@ static const NSString* kIFlyAppId = @"58027389";
     NSString *appid = [NSString stringWithFormat:@"appid=%@",kIFlyAppId];
     [IFlySpeechUtility createUtility:appid];
     //讯飞代理
-    _speechRecognizer = [IFlySpeechRecognizer sharedInstance];
+    _speechRecognizer = [IFlySpeechUnderstander sharedInstance];
     _speechRecognizer.delegate = self;
     //以下三个参数不设置会出现不能登录的错误
     [_speechRecognizer setParameter:@"iat" forKey:@"domain"];
@@ -81,8 +82,15 @@ static const NSString* kIFlyAppId = @"58027389";
 - (void) onResults:(NSArray *) results isLast:(BOOL)isLast
 {
     NSLog(@"fuck!%@",results);
-    if (self.successBlock) {
-        self.successBlock(results);
+    if ([results count] > 0) {
+        NSString *jsonStr = ((NSDictionary *)results[0]).allKeys[0];
+        
+        NSData* jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *iFlyDic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSUTF8StringEncoding error:nil];
+        
+        if (self.successBlock) {
+            self.successBlock([iFlyDic objectForKey:@"text"]);
+        }
     }
 }
 

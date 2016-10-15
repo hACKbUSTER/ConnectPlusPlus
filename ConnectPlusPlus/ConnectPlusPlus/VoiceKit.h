@@ -17,6 +17,7 @@ typedef void (^volumeChangeBlock)(int volume);
 @property (nonatomic, strong) volumeChangeBlock volumeChangeBlock;
 
 + (VoiceKit *)sharedInstance;
+- (void)initService;
 
 - (void)startListening;
 - (void)endListening;

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "VoiceKit.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [AVOSCloud setApplicationId:@"8qITKChiY4SDoyrGXCd7pmsG-gzGzoHsz" clientKey:@"3mz3a8SG13zb3gqvI8QMsjxw"];
-
+    [[VoiceKit sharedInstance] initService];
+    
     return YES;
 }
 
