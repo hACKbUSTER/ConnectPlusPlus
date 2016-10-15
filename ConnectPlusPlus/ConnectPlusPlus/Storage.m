@@ -11,6 +11,22 @@
 
 @implementation Storage
 
++ (NSDate *)lastDate
+{
+    static NSDate *value = nil;
+    if (value == nil)
+    {
+        value = [NSDate date];
+        return nil;
+    }
+    else
+    {
+        NSDate *rtn = [NSDate dateWithTimeInterval:0 sinceDate:value];
+        value = [NSDate date];
+        return rtn;
+    }
+}
+
 + (void)saveData:(NSString *)text withImage:(NSString *)image andLongtitude:(float)longtitude andLatitude:(float)latitude andTags:(NSString *)tags
 {
     NSNumber *hasImage;
@@ -80,9 +96,16 @@
 + (void)getMessages:(ResultBlock)callback
 {
     AVQuery *query = [AVQuery queryWithClassName:@"Message"];
+    //NSDate *lastDate = [Storage lastDate];
+    //NSLog(@"yangsiyu-last-date: %@", lastDate);
+    //if (lastDate != nil)
+    //{
+    //    [query whereKey:@"createdAt" greaterThan:lastDate];
+    //}
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         NSArray<AVObject *> *res = objects;
         NSMutableArray *rtn = [[NSMutableArray alloc] init];
+        NSLog(@"yangsiyu-from-server: %lu", (unsigned long)[res count]);
         for (AVObject *each in res) {
             NSNumber *hasImage = each[@"hasImage"];
             NSString *text = each[@"text"];
@@ -105,19 +128,50 @@
     }];
 }
 
-+ (void)getMessages:(NSDictionary *)lowerLeft withUpperRight:(NSDictionary *)upperRight andCallback:(ResultBlock)callback
++ (void)getMessages:(NSDictionary *)lowerLeft withUpperRight:(NSDictionary *)upperRight andTags:(NSArray *)tags andCallback:(ResultBlock)callback
 {
     [Storage getMessages:^(NSArray *messages) {
         NSMutableArray *rtn = [[NSMutableArray alloc] init];
+        NSLog(@"yangsiyu-before-filter: %lu", (unsigned long)[messages count]);
         for (NSDictionary *message in messages)
         {
-            if (message[@"longtitude"] >= lowerLeft[@"longtitude"] && message[@"latitude"] >= lowerLeft[@"latitude"] && message[@"longtitude"] <= upperRight[@"longtitude"] && message[@"latitude"] <= upperRight[@"latitude"])
+            if ([Storage isInRange:message withLowerLeft:lowerLeft andUpperRight:upperRight])
+                if ([Storage isSubscribed:message withSubscribedTags:tags] > 0)
             {
                 [rtn addObject:message];
             }
         }
+        NSLog(@"yangsiyu-after-filter: %lu", (unsigned long)[rtn count]);
         callback(rtn);
     }];
+}
+
++ (BOOL)isInRange:(NSDictionary *)message withLowerLeft:(NSDictionary *)lowerLeft andUpperRight:(NSDictionary *)upperRight
+{
+    if (message[@"longtitude"] >= lowerLeft[@"longtitude"] && message[@"latitude"] >= lowerLeft[@"latitude"] && message[@"longtitude"] <= upperRight[@"longtitude"] && message[@"latitude"] <= upperRight[@"latitude"])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
++ (NSInteger)isSubscribed:(NSDictionary *)message withSubscribedTags:(NSArray *)subscribedTags
+{
+    NSArray *tags = message[@"tags"];
+    NSInteger rtn = 0;
+    for (NSString *tag in tags) {
+        for (NSString *subscribedTag in subscribedTags) {
+            if ([tag isEqualToString:subscribedTag])
+            {
+                rtn++;
+                break;
+            }
+        }
+    }
+    return rtn;
 }
 
 @end
