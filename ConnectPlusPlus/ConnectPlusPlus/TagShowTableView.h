@@ -11,6 +11,9 @@
 
 @interface TagShowTableView : UITableView
 
+@property (nonatomic, strong) NSMutableArray* tagsData;
+@property (nonatomic, strong) NSMutableArray* categoriesData;
+
 @property (weak) NowOnTapAnimatingView *nowOnTapView;
 - (id) initWithFrame:(CGRect)frame NowOnTap:(NowOnTapAnimatingView *)view;
 

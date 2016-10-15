@@ -12,9 +12,6 @@
 
 @interface TagShowTableView ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic) NSMutableArray* tagsData;
-@property (nonatomic) NSMutableArray* categoriesData;
-
 @end
 
 @implementation TagShowTableView
@@ -23,6 +20,9 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        self.tagsData = [NSMutableArray array];
+        self.categoriesData = [NSMutableArray array];
+        
         self.backgroundView.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
         self.separatorColor = [UIColor clearColor];

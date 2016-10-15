@@ -12,8 +12,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NetworkManager.h"
 #import "TagShowTableView.h"
-
-
+#import "Storage.h"
+#import "DefaultsManager.h"
+#import "AJLocationManager.h"
 
 @interface NowOnTapAnimatingView ()
 
@@ -135,7 +136,14 @@ completion:^(BOOL fin)
 
 - (void) confirmButtonPressed
 {
+    NSArray *tags = [[NSArray alloc] initWithArray:_tagTableView.categoriesData];
+    tags = [tags arrayByAddingObjectsFromArray:_tagTableView.tagsData];
     
+    if (_sourceImage != nil) {
+        [Storage saveImageMessage:_sourceImage withFilename:@"fuck.jpg" andLongtitude:[DefaultsManager sharedManager].currentLocation.longitude andLatitude:[DefaultsManager sharedManager].currentLocation.latitude andTags:tags];
+    } else {
+        [Storage saveTextMessage:_sourceText withLongtitude:[DefaultsManager sharedManager].currentLocation.longitude andLatitude:[DefaultsManager sharedManager].currentLocation.latitude andTags:tags];
+    }
 }
 
 - (UIViewController *)parentViewController {

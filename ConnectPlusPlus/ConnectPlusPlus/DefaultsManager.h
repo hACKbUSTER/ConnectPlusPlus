@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AJLocationManager.h"
 
 @interface DefaultsManager : NSObject
+
+@property (nonatomic) CLLocationCoordinate2D currentLocation;
 
 + (DefaultsManager *)sharedManager;
 

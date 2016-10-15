@@ -15,6 +15,7 @@
 #import "TagManageTableView.h"
 #import "NetworkManager.h"
 #import "Storage.h"
+#import "DefaultsManager.h"
 
 @import Mapbox;
 
@@ -384,6 +385,7 @@
 
 - (void)mapView:(MGLMapView *)mapView didUpdateUserLocation:(nullable MGLUserLocation *)userLocation
 {
+    [[DefaultsManager sharedManager] setCurrentLocation:userLocation.location.coordinate];
     self.currentLocation = userLocation.location.coordinate;
     NSLog(@"***** %f",userLocation.heading.trueHeading);
 }
