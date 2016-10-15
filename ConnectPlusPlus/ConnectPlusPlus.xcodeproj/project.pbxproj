@@ -15,6 +15,8 @@
 		505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */; };
 		505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41491DB210AD00A09F39 /* AJLocationManager.m */; };
 		505D414C1DB210BC00A09F39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D414B1DB210BC00A09F39 /* CoreLocation.framework */; };
+		505D41501DB22F1100A09F39 /* UIView+ViewFrameGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D414F1DB22F1100A09F39 /* UIView+ViewFrameGeometry.m */; };
+		505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 505D41521DB2310C00A09F39 /* Cottons-Light.otf */; };
 		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,9 @@
 		505D41481DB210AD00A09F39 /* AJLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AJLocationManager.h; path = Services/AJLocationManager.h; sourceTree = "<group>"; };
 		505D41491DB210AD00A09F39 /* AJLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AJLocationManager.m; path = Services/AJLocationManager.m; sourceTree = "<group>"; };
 		505D414B1DB210BC00A09F39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		505D414E1DB22F1100A09F39 /* UIView+ViewFrameGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewFrameGeometry.h"; sourceTree = "<group>"; };
+		505D414F1DB22F1100A09F39 /* UIView+ViewFrameGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewFrameGeometry.m"; sourceTree = "<group>"; };
+		505D41521DB2310C00A09F39 /* Cottons-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cottons-Light.otf"; path = "Font/Cottons-Light.otf"; sourceTree = "<group>"; };
 		9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.release.xcconfig"; sourceTree = "<group>"; };
 		C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ConnectPlusPlus.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectPlusPlus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConnectPlusPlus/Pods-ConnectPlusPlus.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +85,8 @@
 		505D412F1DB1DD4B00A09F39 /* ConnectPlusPlus */ = {
 			isa = PBXGroup;
 			children = (
+				505D41511DB230F900A09F39 /* Font */,
+				505D414D1DB22EC800A09F39 /* Vendor */,
 				505D41471DB20F0A00A09F39 /* Services */,
 				505D41331DB1DD4B00A09F39 /* AppDelegate.h */,
 				505D41341DB1DD4B00A09F39 /* AppDelegate.m */,
@@ -109,6 +116,23 @@
 				505D41491DB210AD00A09F39 /* AJLocationManager.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		505D414D1DB22EC800A09F39 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				505D414E1DB22F1100A09F39 /* UIView+ViewFrameGeometry.h */,
+				505D414F1DB22F1100A09F39 /* UIView+ViewFrameGeometry.m */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		505D41511DB230F900A09F39 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				505D41521DB2310C00A09F39 /* Cottons-Light.otf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		CA442F89F2B959604CC890BB /* Pods */ = {
@@ -184,6 +208,7 @@
 			files = (
 				505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */,
 				505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */,
+				505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */,
 				505D413B1DB1DD4B00A09F39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +272,7 @@
 				505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */,
 				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
 				505D41321DB1DD4B00A09F39 /* main.m in Sources */,
+				505D41501DB22F1100A09F39 /* UIView+ViewFrameGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

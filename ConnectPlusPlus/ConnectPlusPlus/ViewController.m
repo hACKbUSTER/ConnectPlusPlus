@@ -8,15 +8,25 @@
 
 #import "ViewController.h"
 #import "AJLocationManager.h"
+#import "UIView+ViewFrameGeometry.h"
+
 @import Mapbox;
 
 @interface ViewController () <MGLMapViewDelegate>
 
 @property (nonatomic, strong) MGLMapView *mapView;
-@property (nonatomic) CLLocationCoordinate2D currentLocation;
-@property (nonatomic) MGLCoordinateBounds currentVisibleBounds;
+@property (nonatomic)         CLLocationCoordinate2D currentLocation;
+@property (nonatomic)         MGLCoordinateBounds currentVisibleBounds;
 @property (nonatomic, strong) MGLPointAnnotation *currentUserAnnotation;
 @property (nonatomic, strong) NSMutableArray *markerArray;
+
+@property (nonatomic, strong) UIView *bottomToolBarView;
+
+@property (nonatomic, strong) UIButton *bottomToolBarCameraButton;
+@property (nonatomic, strong) UIButton *bottomToolBarMicroButton;
+
+@property (nonatomic, strong) UIView *topBarView;
+@property (nonatomic, strong) UILabel *topBarTitleView;
 
 @end
 
@@ -61,6 +71,40 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [_mapView addGestureRecognizer:tap];
+    
+    _bottomToolBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, ScreenHeight - 55.0f, ScreenWidth, 55.0f)];
+    _bottomToolBarView.backgroundColor = [UIColor blackColor];
+    
+    _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 110.0f, 7.5f, 40.0f, 40.0f)];
+    _bottomToolBarCameraButton.backgroundColor = [UIColor clearColor];
+    [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+    [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
+    
+    _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
+    _bottomToolBarMicroButton.backgroundColor = [UIColor clearColor];
+    [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"Micro"] forState:UIControlStateNormal];
+    [_bottomToolBarView addSubview:_bottomToolBarMicroButton];
+    
+    [self.view addSubview:_bottomToolBarView];
+    
+    _topBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, 80.0f)];
+    _topBarView.backgroundColor = [UIColor clearColor];
+    
+    
+    UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithFrame:_topBarView.bounds];
+    blurView.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    
+    [_topBarView addSubview:blurView];
+    
+    _topBarTitleView = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 200.0f, 40.0f)];
+    _topBarTitleView.text = @"Connect ++";
+    _topBarTitleView.textColor = [UIColor whiteColor];
+    _topBarTitleView.font = [UIFont fontWithName:@"TT Cottons Light DEMO" size:30.0f];
+    _topBarTitleView.textAlignment = NSTextAlignmentCenter;
+    _topBarTitleView.center = CGPointMake(_topBarView.center.x, _topBarTitleView.center.y);
+    
+    [_topBarView addSubview:_topBarTitleView];
+    [self.view addSubview:_topBarView];
 }
 
 -(float)randomFloatBetween:(float)num1 andLargerFloat:(float)num2
