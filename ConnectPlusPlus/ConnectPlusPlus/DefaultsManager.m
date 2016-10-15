@@ -63,11 +63,14 @@
 {
     if ([self.userDefaults objectForKey:@"taglist"]) {
         NSMutableArray *t = [[self.userDefaults objectForKey:@"taglist"] mutableCopy];
-        if (![t containsObject:tag]) {
-            [t removeObject:tag];
+        for (int i = 0; i < t.count; i++) {
+            if ([t[i] isEqualToString:tag]) {
+                [t removeObjectAtIndex:i];
+                [self.userDefaults setValue:t forKey:@"taglist"];
+                return YES;
+            }
         }
-        [self.userDefaults setValue:t forKey:@"taglist"];
-        return YES;
+        return NO;
     } else {
         return NO;
     }

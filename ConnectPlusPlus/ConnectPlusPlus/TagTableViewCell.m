@@ -8,10 +8,13 @@
 
 #import "TagTableViewCell.h"
 #import <YYImage/YYImage.h>
+#import <YYWebImage/YYWebImage.h>
+#import "UIView+ViewFrameGeometry.h"
 
 @interface TagTableViewCell()
 
-@property (nonatomic, strong) UIImageView *backgroundImageView;
+@property (nonatomic, strong) YYAnimatedImageView *backgroundImageView;
+@property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong) UILabel *titleLabel;
 
 @end
@@ -23,6 +26,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.backgroundImageView];
+        [self addSubview:self.maskView];
+        [self addSubview:self.titleLabel];
     }
     return self;
 }
@@ -38,9 +44,48 @@
     // Configure the view for the selected state
 }
 
+- (void)setupWithTagString:(NSString *)tagString {
+    self.titleLabel.text = [NSString stringWithFormat:@"#%@", tagString];
+    [self.backgroundImageView yy_setImageWithURL:[NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/commons/3/3c/Peak_hour_traffic_in_melbourne.jpg"] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url) {
+        return image;
+    } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error) {
+        
+    }];
+}
+
 - (void)layoutSubviews
 {
     
 }
 
+#pragma mark - Init
+- (YYAnimatedImageView *)backgroundImageView {
+    if (!_backgroundImageView) {
+        _backgroundImageView = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 108)];
+        _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _backgroundImageView.layer.masksToBounds = YES;
+        _backgroundImageView.userInteractionEnabled = NO;
+    }
+    return _backgroundImageView;
+}
+
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 108)];
+        _maskView.backgroundColor = [UIColor blackColor];
+        _maskView.alpha = .6f;
+    }
+    return _maskView;
+}
+
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 43, ScreenWidth - 40, 36)];
+        _titleLabel.font = [UIFont systemFontOfSize:30.f weight:UIFontWeightHeavy];
+        _titleLabel.textColor = [UIColor whiteColor];
+    }
+    return _titleLabel;
+}
 @end

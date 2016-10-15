@@ -10,4 +10,6 @@
 
 @interface TagTableViewCell : UITableViewCell
 
+- (void)setupWithTagString:(NSString *)tagString;
+
 @end
