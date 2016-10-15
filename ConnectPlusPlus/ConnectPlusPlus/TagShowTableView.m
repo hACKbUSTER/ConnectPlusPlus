@@ -21,7 +21,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
-//        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.backgroundView.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
         self.separatorColor = [UIColor clearColor];
         [self registerNib:[UINib nibWithNibName:@"TagShowTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TagShowTableViewCell"];

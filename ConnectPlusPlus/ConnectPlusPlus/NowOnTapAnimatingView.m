@@ -84,8 +84,10 @@ completion:^(BOOL fin)
              
              _tagTableView = [[TagShowTableView alloc] initWithFrame:CGRectMake(0, 0, _visualEffectView.frame.size.width, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT)];
              _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT,  _visualEffectView.frame.size.width/2, NOW_ON_TAP_BUTTONS_HEIGHT)];
+              [_cancelButton addTarget:self action:@selector(cancelButtonPressed) forControlEvents:UIControlEventTouchUpInside];
              [_cancelButton setImage:[UIImage imageNamed:@"closeButton"] forState:UIControlStateNormal];
              _confirmButton = [[UIButton alloc] initWithFrame:CGRectMake(_visualEffectView.frame.size.width/2, _visualEffectView.frame.size.height - NOW_ON_TAP_BUTTONS_HEIGHT,  _visualEffectView.frame.size.width/2, NOW_ON_TAP_BUTTONS_HEIGHT)];
+             [_confirmButton addTarget:self action:@selector(confirmButtonPressed) forControlEvents:UIControlEventTouchUpInside];
              [_confirmButton setImage:[UIImage imageNamed:@"confirmButton"] forState:UIControlStateNormal];
              
              [_visualEffectView addSubview:_tagTableView];
@@ -106,6 +108,15 @@ completion:^(BOOL fin)
     _hasAnimated = YES;
 }
 
+- (void) cancelButtonPressed
+{
+    
+}
+
+- (void) confirmButtonPressed
+{
+    
+}
 
 
 /*
