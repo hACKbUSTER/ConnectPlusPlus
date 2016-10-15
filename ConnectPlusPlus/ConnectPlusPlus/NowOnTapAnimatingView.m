@@ -130,7 +130,7 @@ completion:^(BOOL fin)
 
 - (void) cancelButtonPressed
 {
-    
+    [[self parentViewController] dismissViewControllerAnimated:YES completion: nil];
 }
 
 - (void) confirmButtonPressed
@@ -138,6 +138,12 @@ completion:^(BOOL fin)
     
 }
 
+- (UIViewController *)parentViewController {
+    UIResponder *responder = self;
+    while ([responder isKindOfClass:[UIView class]])
+        responder = [responder nextResponder];
+    return (UIViewController *)responder;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -43,6 +43,12 @@
     
     [VoiceKit sharedInstance].successBlock = ^(id object)
     {
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 22, self.view.frame.size.width, self.view.frame.size.height/2)];
+        textView.text = (NSString *)object;
+        textView.textColor = [UIColor whiteColor];
+        textView.backgroundColor = [UIColor clearColor];
+        textView.font = [UIFont systemFontOfSize:60.0f weight:100.0f];
+        [self.view addSubview:textView];
         NSLog(@"FUCKKKKK %@",object);
         NowOnTapAnimatingView *nowOnTapView = [[NowOnTapAnimatingView alloc] initWithFrame:self.view.frame];
         nowOnTapView.sourceText = (NSString *)object;
