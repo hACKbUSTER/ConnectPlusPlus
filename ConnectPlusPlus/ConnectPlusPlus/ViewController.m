@@ -14,6 +14,7 @@
 #import "CreateTextViewController.h"
 #import "TagManageTableView.h"
 #import "NetworkManager.h"
+#import "Storage.h"
 
 @import Mapbox;
 
