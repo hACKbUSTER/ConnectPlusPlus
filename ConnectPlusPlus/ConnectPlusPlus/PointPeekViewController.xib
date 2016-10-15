@@ -50,7 +50,7 @@
                                     <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="8bS-o4-3ue"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="#Tag" translatesAutoresizingMaskIntoConstraints="NO" id="obj-yW-IuA">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obj-yW-IuA">
                                 <rect key="frame" x="56" y="383" width="311" height="223"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -7,6 +7,8 @@
 //
 
 #import "PointPeekViewController.h"
+#import <YYImage/YYImage.h>
+#import <YYWebImage/YYWebImage.h>
 
 @interface PointPeekViewController ()
 
@@ -17,6 +19,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    BOOL hasImage = [[self.messageDict objectForKey:@"hasImage"] boolValue];
+    if (hasImage)
+    {
+        NSString *url = [self.messageDict objectForKey:@"image"];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.connetContentView.frame];
+        [self.connetContentView addSubview:imageView];
+        
+        [imageView yy_setImageWithURL:[NSURL URLWithString:url] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize)
+        {
+            
+        } transform:^UIImage * _Nullable(UIImage * _Nonnull image, NSURL * _Nonnull url)
+        {
+            return image;
+        } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error)
+        {
+            
+        }];
+    }else
+    {
+        NSString *text = [self.messageDict objectForKey:@"text"];
+        
+        UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(self.connetContentView.frame.origin.x, 22.0f, self.connetContentView.frame.size.width, self.connetContentView.frame.size.height)];
+        textView.text = [NSString stringWithFormat:@"\" %@ \"",text];
+        textView.textColor = [UIColor whiteColor];
+        textView.backgroundColor = [UIColor clearColor];
+        textView.font = [UIFont systemFontOfSize:60.0f weight:100.0f];
+        [self.connetContentView addSubview:textView];
+
+    }
+    
+    NSArray *tags = [self.messageDict objectForKey:@"tags"];
+    for (NSString *str in tags)
+    {
+        self.tagTextView.text = [self.tagTextView.text stringByAppendingString:[NSString stringWithFormat:@"%@\n",str]];
+    }
+    
+    
+    
 }
 - (IBAction)closeButtonPressed:(id)sender
 {

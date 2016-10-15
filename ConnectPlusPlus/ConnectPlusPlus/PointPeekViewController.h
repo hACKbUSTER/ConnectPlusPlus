@@ -16,4 +16,5 @@
 
 @property (nonatomic, strong) NSDictionary *messageDict;
 
+
 @end

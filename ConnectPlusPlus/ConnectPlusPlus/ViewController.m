@@ -365,8 +365,10 @@
                 NSDictionary *messageDict = [NSJSONSerialization JSONObjectWithData:data1 options:kNilOptions error:nil];
                 
                 PointPeekViewController *peek = [[PointPeekViewController alloc] init];
-                peek.view.frame = self.view.frame;
                 peek.messageDict = messageDict;
+                
+                peek.view.frame = self.view.frame;
+                
                 return peek;
             }
         }
