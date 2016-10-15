@@ -25,6 +25,8 @@
     NSTimer *requestTimer;
     
     UIImageView *profileImageView;
+    
+    NSInteger maxMarkerCount;
 }
 
 @property (nonatomic, strong) MGLMapView *mapView;
@@ -62,6 +64,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    maxMarkerCount = 100;
+    
     self.view.backgroundColor = [UIColor blackColor];
     
     _markerArray = [NSMutableArray array];
@@ -211,9 +215,14 @@
             }
             if (flag == NO)
             {
-                NSString *categorieString = [self generateCategorieString:message[@"tags"]];
-                NSString *mainTag = @"TAG";//TODO
-                [self addNewMarkerAtCoordinate:CLLocationCoordinate2DMake([message[@"latitude"] doubleValue], [message[@"longtitude"] doubleValue]) categories:categorieString mainTag:mainTag];
+//                NSString *categorieString = [self generateCategorieString:message[@"tags"]];
+                NSString *mainTag = [message[@"tags"] objectAtIndex:0]; //@"TAG";//TODO
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:message options:NSJSONWritingPrettyPrinted error:nil];
+                
+                NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                
+                [self addNewMarkerAtCoordinate:CLLocationCoordinate2DMake([message[@"latitude"] doubleValue], [message[@"longtitude"] doubleValue]) message:jsonStr mainTag:mainTag];
+                
                 [_messagePoints addObject:message];
             }
         }
@@ -260,7 +269,7 @@
     return(a /10000.0);
 }
 
-- (void)addNewMarkerAtCoordinate:(CLLocationCoordinate2D)coordinate categories:(NSString *)categorieString mainTag:(NSString *)mainTag
+- (void)addNewMarkerAtCoordinate:(CLLocationCoordinate2D)coordinate message:(NSString *)categorieString mainTag:(NSString *)mainTag
 {
     MGLPointAnnotation *testMarker = [[MGLPointAnnotation alloc] init];
     testMarker.coordinate = coordinate;
@@ -269,7 +278,7 @@
     
     [self.mapView addAnnotation:testMarker];
     [_markerArray addObject:testMarker];
-    if (_markerArray.count > 10) {
+    if (_markerArray.count > maxMarkerCount) {
         [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
         [_markerArray removeObjectAtIndex:0];
     }
@@ -277,22 +286,23 @@
 
 - (void)tap:(UIGestureRecognizer *)gesture
 {
-    MGLPointAnnotation *testMarker = [[MGLPointAnnotation alloc] init];
-    
-    CGFloat latitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.latitude - _mapView.visibleCoordinateBounds.sw.latitude) * 0.5f;
-    CGFloat longitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.longitude - _mapView.visibleCoordinateBounds.sw.longitude) * 0.5f;
-    
-    CLLocationCoordinate2D t = CLLocationCoordinate2DMake(self.currentLocation.latitude - latitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * latitude_delta,self.currentLocation.longitude - longitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * longitude_delta);
-    testMarker.coordinate = t;
-    testMarker.title = @"TAG";
-    testMarker.subtitle = @"traffic/indooractivity";
-    
-    [self.mapView addAnnotation:testMarker];
-    [_markerArray addObject:testMarker];
-    if (_markerArray.count > 10) {
-        [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
-        [_markerArray removeObjectAtIndex:0];
-    }
+//    MGLPointAnnotation *testMarker = [[MGLPointAnnotation alloc] init];
+//    
+//    CGFloat latitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.latitude - _mapView.visibleCoordinateBounds.sw.latitude) * 0.5f;
+//    CGFloat longitude_delta = fabs(_mapView.visibleCoordinateBounds.ne.longitude - _mapView.visibleCoordinateBounds.sw.longitude) * 0.5f;
+//    
+//    CLLocationCoordinate2D t = CLLocationCoordinate2DMake(self.currentLocation.latitude - latitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * latitude_delta,self.currentLocation.longitude - longitude_delta/2.0f + [self randomFloatBetween:0.0f andLargerFloat:1.0f] * longitude_delta);
+//    testMarker.coordinate = t;
+//    testMarker.title = @"TAG";
+//    testMarker.subtitle = [NSString stringWithFormat:@"traffic/indooractivity%ld",_markerArray.count];
+//    
+//    [self.mapView addAnnotation:testMarker];
+//    [_markerArray addObject:testMarker];
+//    if (_markerArray.count > maxMarkerCount) {
+//        [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
+//        [_markerArray removeObjectAtIndex:0];
+//    }
+    [self addingFakeMessages];
 }
 
 - (void)addButtonPressed:(id)sender
@@ -347,8 +357,15 @@
         if (annotationView) {
             if ([annotationView.layer containsPoint:[self.mapView.layer convertPoint:location toLayer:annotationView.layer]])
             {
+                NSInteger index = [self.markerViewArray indexOfObject:annotationView];
+                MGLPointAnnotation *t = [self.markerArray objectAtIndex:index];
+                
+                NSData* data1 = [t.subtitle dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *messageDict = [NSJSONSerialization JSONObjectWithData:data1 options:kNilOptions error:nil];
+                
                 PointPeekViewController *peek = [[PointPeekViewController alloc] init];
                 peek.view.frame = self.view.frame;
+                peek.messageDict = messageDict;
                 return peek;
             }
         }
@@ -406,33 +423,13 @@
     }
     
     MGLPointAnnotation *item = (MGLPointAnnotation *)annotation;
-    
-    if (![item.title isEqualToString:@"TAG"]) {
-        NSString *reuseIdentifier = [NSString stringWithFormat:@"marker_%f", annotation.coordinate.longitude];
-
-        MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
-        
-        if (!annotationView) {
-            annotationView = [[MGLAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
-            annotationView.frame = CGRectMake(0, 0, 20, 20);
-            annotationView.layer.masksToBounds = NO;
-            annotationView.layer.anchorPoint = CGPointMake(0.5f, 0.0f);
-            
-            UIImage *image = [UIImage imageNamed:@"marker"];
-            image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
-            
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-            imageView.image = image;
-            imageView.contentMode = UIViewContentModeCenter;
-            
-            [annotationView addSubview:imageView];
-        }
-        
-        CGFloat degrees = fabs(180.0f - self.cachedHeading.trueHeading);
-        annotationView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, degrees/360.0f * M_PI);
-
-        self.currentPointView = annotationView;
-        return annotationView;
+    NSString *imageName = @"point_car";
+    if ([item.title isEqualToString:@"aaa"]) {
+        imageName = @"point_cloud";
+    } else if ([item.title isEqualToString:@"bbb"]) {
+        imageName = @"point_flower";
+    } else if ([item.title isEqualToString:@"ccc"]) {
+        imageName = @"point_plane";
     }
     
     // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
@@ -444,13 +441,13 @@
     // If there’s no reusable annotation view available, initialize a new one.
     if (!annotationView) {
         annotationView = [[MGLAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
-        annotationView.frame = CGRectMake(0, 0, 20, 20);
+        annotationView.frame = CGRectMake(0, 0, 30, 30);
 
-        UIImage *image = [UIImage imageNamed:@"testMarker"];
+        UIImage *image = [UIImage imageNamed:imageName];
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-        imageView.layer.cornerRadius = 10.0f;
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        imageView.layer.cornerRadius = 15.0f;
         imageView.layer.masksToBounds = YES;
         imageView.image = image;
         [annotationView addSubview:imageView];
@@ -459,7 +456,7 @@
         [self addScaleForView:annotationView];
         
         [_markerViewArray addObject:annotationView];
-        if (_markerViewArray.count > 10) {
+        if (_markerViewArray.count > maxMarkerCount) {
             [self.mapView removeAnnotation:[_markerViewArray objectAtIndex:0]];
             [_markerViewArray removeObjectAtIndex:0];
         }
