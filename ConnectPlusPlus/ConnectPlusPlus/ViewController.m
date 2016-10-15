@@ -10,9 +10,11 @@
 #import "AJLocationManager.h"
 #import "UIView+ViewFrameGeometry.h"
 
+#import "PointPeekViewController.h"
+
 @import Mapbox;
 
-@interface ViewController () <MGLMapViewDelegate>
+@interface ViewController () <MGLMapViewDelegate,UIViewControllerPreviewingDelegate>
 
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic)         CLLocationCoordinate2D currentLocation;
@@ -24,6 +26,8 @@
 
 @property (nonatomic, strong) UIButton *bottomToolBarCameraButton;
 @property (nonatomic, strong) UIButton *bottomToolBarMicroButton;
+
+@property (nonatomic, strong) UIButton *topBarListButton;
 
 @property (nonatomic, strong) UIView *topBarView;
 @property (nonatomic, strong) UILabel *topBarTitleView;
@@ -77,12 +81,12 @@
     
     _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 110.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarCameraButton.backgroundColor = [UIColor clearColor];
-    [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"Camera"] forState:UIControlStateNormal];
+    [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"camera"] forState:UIControlStateNormal];
     [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
     
     _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarMicroButton.backgroundColor = [UIColor clearColor];
-    [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"Micro"] forState:UIControlStateNormal];
+    [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"micphone"] forState:UIControlStateNormal];
     [_bottomToolBarView addSubview:_bottomToolBarMicroButton];
     
     [self.view addSubview:_bottomToolBarView];
@@ -90,14 +94,18 @@
     _topBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, ScreenWidth, 80.0f)];
     _topBarView.backgroundColor = [UIColor clearColor];
     
-    
     UIVisualEffectView *blurView = [[UIVisualEffectView alloc] initWithFrame:_topBarView.bounds];
     blurView.effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
     
     [_topBarView addSubview:blurView];
     
+    _topBarListButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 52.0f, 25.5f, 50.0f, 50.0f)];
+    _topBarListButton.backgroundColor = [UIColor clearColor];
+    [_topBarListButton setImage:[UIImage imageNamed:@"list"] forState:UIControlStateNormal];
+    [_topBarView addSubview:_topBarListButton];
+    
     _topBarTitleView = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 30.0f, 200.0f, 40.0f)];
-    _topBarTitleView.text = @"Connect ++";
+    _topBarTitleView.text = @"C o n n e c t + +";
     _topBarTitleView.textColor = [UIColor whiteColor];
     _topBarTitleView.font = [UIFont fontWithName:@"TT Cottons Light DEMO" size:30.0f];
     _topBarTitleView.textAlignment = NSTextAlignmentCenter;
@@ -105,6 +113,11 @@
     
     [_topBarView addSubview:_topBarTitleView];
     [self.view addSubview:_topBarView];
+    
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+    {
+        [self registerForPreviewingWithDelegate:self sourceView:self.view];
+    }
 }
 
 -(float)randomFloatBetween:(float)num1 andLargerFloat:(float)num2
@@ -137,6 +150,31 @@
     }
 }
 
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
+              viewControllerForLocation:(CGPoint)location
+{
+    for (MGLPointAnnotation *annotation in self.mapView.annotations)
+    {
+        MGLAnnotationView *annotationView = (MGLAnnotationView *)[self.mapView viewForAnnotation:annotation];
+        if ([annotationView.layer containsPoint:location])
+        {
+            PointPeekViewController *peek = [[PointPeekViewController alloc] init];
+            peek.view.frame = self.view.frame;
+            return peek;
+        }
+    }
+    
+    return nil;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
+     commitViewController:(UIViewController *)viewControllerToCommit
+{
+    
+}
+
 #pragma mark - MGLMapViewDelegate Methods
 
 // 这里是所见区域更新的回调方法，需要在这里重新请求界面上的数据点
@@ -147,6 +185,12 @@
 //    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((mapView.visibleCoordinateBounds.ne.latitude + mapView.visibleCoordinateBounds.sw.latitude)/2.0f, (mapView.visibleCoordinateBounds.ne.longitude + mapView.visibleCoordinateBounds.sw.longitude)/2.0f);
     
     NSLog(@"regionDidChange!");
+}
+
+- (void)mapView:(nonnull MGLMapView *)mapView
+didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation
+{
+    
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
