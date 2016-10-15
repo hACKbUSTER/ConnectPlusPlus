@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Cloud" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-Yo-RYQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VcM-Yo-RYQ">
                         <rect key="frame" x="8" y="8" width="252" height="48"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,6 +31,9 @@
                             <constraint firstAttribute="height" constant="40" id="yV7-eW-wrD"/>
                         </constraints>
                         <state key="normal" image="addRoundButton"/>
+                        <connections>
+                            <action selector="addMinusButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NDZ-33-1Y6"/>
+                        </connections>
                     </button>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7s3-Gq-UBE">
                         <rect key="frame" x="0.0" y="64" width="320" height="48"/>
@@ -49,6 +52,11 @@
                     <constraint firstAttribute="bottom" secondItem="7s3-Gq-UBE" secondAttribute="bottom" constant="6" id="oeJ-h8-Qa2"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addMinusTagButton" destination="kRu-X6-xuB" id="1Va-dZ-8Uh"/>
+                <outlet property="hyperLinksScrollView" destination="7s3-Gq-UBE" id="fsn-IN-nwV"/>
+                <outlet property="tagLabel" destination="VcM-Yo-RYQ" id="hjJ-hp-dhD"/>
+            </connections>
             <point key="canvasLocation" x="-107" y="51"/>
         </tableViewCell>
     </objects>
