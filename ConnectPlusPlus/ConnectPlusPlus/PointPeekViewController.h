@@ -6,8 +6,12 @@
 //  Copyright © 2016年 hackbuster. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface PointPeekViewController : ViewController
+@interface PointPeekViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextView *tagTextView;
+@property (weak, nonatomic) IBOutlet UIView *connetContentView;
+@property (weak, nonatomic) IBOutlet UILabel *timeAgoLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryImageView;
 
 @end

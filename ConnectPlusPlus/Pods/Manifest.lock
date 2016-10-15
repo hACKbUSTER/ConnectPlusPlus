@@ -26,10 +26,12 @@ PODS:
     - AVOSCloudIM/_NOARC (= 3.5.1)
   - AVOSCloudIM/_NOARC (3.5.1):
     - AVOSCloud (= 3.5.1)
+  - LLSimpleCamera (4.2.0)
   - Mapbox-iOS-SDK (3.3.4)
   - NSDate+TimeAgo (1.0.6)
   - Pangu (0.2.1)
   - PFWebViewController (1.1.1)
+  - Waver (0.2.0)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -42,10 +44,12 @@ DEPENDENCIES:
   - AFNetworking (from `https://github.com/Cee/AFNetworking.git`, branch `JSONKit`)
   - AVOSCloud
   - AVOSCloudIM
+  - LLSimpleCamera (~> 4.1)
   - Mapbox-iOS-SDK (~> 3.3.4)
   - NSDate+TimeAgo
   - Pangu
   - PFWebViewController
+  - Waver (~> 0.2.0)
   - YYWebImage
 
 EXTERNAL SOURCES:
@@ -62,14 +66,16 @@ SPEC CHECKSUMS:
   AFNetworking: 07c2b2852f25c52ed8c91e531f36f9986d673cce
   AVOSCloud: 3dfc202ae8c8b543e2332c0f019e08972c4092c0
   AVOSCloudIM: a8a89cbdc9387079f6da7bd4f371c523086a7635
+  LLSimpleCamera: ed7813ce4827ff3e34c6af159c99b5b56e54d1c6
   Mapbox-iOS-SDK: b22da0d9703fcfb0a8b592b6a7f6a21264fe44b0
   NSDate+TimeAgo: 35601c619b2d59290055e4fe76e61d97677a2360
   Pangu: e1b25c2323d63ae51b7e9727650183916edf0538
   PFWebViewController: 54a32ee2d0d70b5dea6470d04d4ef8d91afbd9f9
+  Waver: 11130a66fbb0ec313ef6012cf0d9499c00d2a541
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: ad4db992ca0d035e3297d96604abcdb55352d96f
+PODFILE CHECKSUM: 9d79828bc8e723d683bd9585ca4367b2bf506d41
 
 COCOAPODS: 1.1.0.beta.2

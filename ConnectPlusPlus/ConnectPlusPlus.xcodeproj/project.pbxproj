@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */; };
 		0D37F8C31DB2567A009473C7 /* PointPeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */; };
+		0D37F8C71DB28E71009473C7 /* CreateTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8C51DB28E71009473C7 /* CreateTextViewController.m */; };
+		0D37F8C81DB28E71009473C7 /* CreateTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D37F8C61DB28E71009473C7 /* CreateTextViewController.xib */; };
+		0D37F8CB1DB2916D009473C7 /* NowOnTapAnimatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */; };
+		0D37F8CE1DB294C7009473C7 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D37F8CD1DB294C7009473C7 /* CameraViewController.m */; };
 		505D41321DB1DD4B00A09F39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41311DB1DD4B00A09F39 /* main.m */; };
 		505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41341DB1DD4B00A09F39 /* AppDelegate.m */; };
 		505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41371DB1DD4B00A09F39 /* ViewController.m */; };
@@ -19,6 +23,11 @@
 		505D414C1DB210BC00A09F39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505D414B1DB210BC00A09F39 /* CoreLocation.framework */; };
 		505D41501DB22F1100A09F39 /* UIView+ViewFrameGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D414F1DB22F1100A09F39 /* UIView+ViewFrameGeometry.m */; };
 		505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 505D41521DB2310C00A09F39 /* Cottons-Light.otf */; };
+		505D41581DB281B100A09F39 /* TagManageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41571DB281B100A09F39 /* TagManageTableView.m */; };
+		505D415B1DB286E500A09F39 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D415A1DB286E500A09F39 /* CameraViewController.m */; };
+		505D415E1DB28EE700A09F39 /* MicrophoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */; };
+		505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41601DB28F3C00A09F39 /* DefaultsManager.m */; };
+		505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 505D41631DB28FF500A09F39 /* TagTableViewCell.m */; };
 		70B98DF02EC7CB9563C78F61 /* libPods-ConnectPlusPlus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0221C5D1CF64CD736F7CD7E /* libPods-ConnectPlusPlus.a */; };
 		79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */ = {isa = PBXBuildFile; fileRef = 79AD4CD91DB25E6200A944ED /* Storage.m */; };
 		9258089F1DB28417007E6248 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9258089E1DB28417007E6248 /* NetworkManager.m */; };
@@ -28,6 +37,13 @@
 		0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointPeekViewController.h; sourceTree = "<group>"; };
 		0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointPeekViewController.m; sourceTree = "<group>"; };
 		0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PointPeekViewController.xib; sourceTree = "<group>"; };
+		0D37F8C41DB28E71009473C7 /* CreateTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTextViewController.h; sourceTree = "<group>"; };
+		0D37F8C51DB28E71009473C7 /* CreateTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTextViewController.m; sourceTree = "<group>"; };
+		0D37F8C61DB28E71009473C7 /* CreateTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateTextViewController.xib; sourceTree = "<group>"; };
+		0D37F8C91DB2916D009473C7 /* NowOnTapAnimatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowOnTapAnimatingView.h; sourceTree = "<group>"; };
+		0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowOnTapAnimatingView.m; sourceTree = "<group>"; };
+		0D37F8CC1DB294C7009473C7 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		0D37F8CD1DB294C7009473C7 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		505D412D1DB1DD4B00A09F39 /* ConnectPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505D41311DB1DD4B00A09F39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		505D41331DB1DD4B00A09F39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -44,6 +60,16 @@
 		505D414E1DB22F1100A09F39 /* UIView+ViewFrameGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewFrameGeometry.h"; sourceTree = "<group>"; };
 		505D414F1DB22F1100A09F39 /* UIView+ViewFrameGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewFrameGeometry.m"; sourceTree = "<group>"; };
 		505D41521DB2310C00A09F39 /* Cottons-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Cottons-Light.otf"; path = "Font/Cottons-Light.otf"; sourceTree = "<group>"; };
+		505D41561DB281B100A09F39 /* TagManageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagManageTableView.h; sourceTree = "<group>"; };
+		505D41571DB281B100A09F39 /* TagManageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagManageTableView.m; sourceTree = "<group>"; };
+		505D41591DB286E500A09F39 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		505D415A1DB286E500A09F39 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		505D415C1DB28EE700A09F39 /* MicrophoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MicrophoneViewController.h; sourceTree = "<group>"; };
+		505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MicrophoneViewController.m; sourceTree = "<group>"; };
+		505D415F1DB28F3C00A09F39 /* DefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsManager.h; sourceTree = "<group>"; };
+		505D41601DB28F3C00A09F39 /* DefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsManager.m; sourceTree = "<group>"; };
+		505D41621DB28FF500A09F39 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
+		505D41631DB28FF500A09F39 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
 		79AD4CD81DB25E6200A944ED /* Storage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		79AD4CD91DB25E6200A944ED /* Storage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Storage.m; sourceTree = "<group>"; };
 		9258089D1DB28417007E6248 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = Services/NetworkManager.h; sourceTree = "<group>"; };
@@ -96,18 +122,13 @@
 		505D412F1DB1DD4B00A09F39 /* ConnectPlusPlus */ = {
 			isa = PBXGroup;
 			children = (
+				505D41551DB2819600A09F39 /* Views */,
+				505D41541DB2818800A09F39 /* ViewControllers */,
 				505D41511DB230F900A09F39 /* Font */,
 				505D414D1DB22EC800A09F39 /* Vendor */,
 				505D41471DB20F0A00A09F39 /* Services */,
 				505D41331DB1DD4B00A09F39 /* AppDelegate.h */,
 				505D41341DB1DD4B00A09F39 /* AppDelegate.m */,
-				505D41361DB1DD4B00A09F39 /* ViewController.h */,
-				505D41371DB1DD4B00A09F39 /* ViewController.m */,
-				0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */,
-				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
-				79AD4CD81DB25E6200A944ED /* Storage.h */,
-				79AD4CD91DB25E6200A944ED /* Storage.m */,
-				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
 				505D41391DB1DD4B00A09F39 /* Main.storyboard */,
 				505D413C1DB1DD4B00A09F39 /* Assets.xcassets */,
 				505D413E1DB1DD4B00A09F39 /* LaunchScreen.storyboard */,
@@ -128,10 +149,14 @@
 		505D41471DB20F0A00A09F39 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				79AD4CD81DB25E6200A944ED /* Storage.h */,
+				79AD4CD91DB25E6200A944ED /* Storage.m */,
 				505D41481DB210AD00A09F39 /* AJLocationManager.h */,
 				505D41491DB210AD00A09F39 /* AJLocationManager.m */,
 				9258089D1DB28417007E6248 /* NetworkManager.h */,
 				9258089E1DB28417007E6248 /* NetworkManager.m */,
+				505D415F1DB28F3C00A09F39 /* DefaultsManager.h */,
+				505D41601DB28F3C00A09F39 /* DefaultsManager.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -151,6 +176,38 @@
 				505D41521DB2310C00A09F39 /* Cottons-Light.otf */,
 			);
 			name = Font;
+			sourceTree = "<group>";
+		};
+		505D41541DB2818800A09F39 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				505D41361DB1DD4B00A09F39 /* ViewController.h */,
+				505D41371DB1DD4B00A09F39 /* ViewController.m */,
+				0D37F8C11DB2567A009473C7 /* PointPeekViewController.xib */,
+				0D37F8BF1DB2567A009473C7 /* PointPeekViewController.h */,
+				0D37F8C01DB2567A009473C7 /* PointPeekViewController.m */,
+				505D41591DB286E500A09F39 /* CameraViewController.h */,
+				505D415A1DB286E500A09F39 /* CameraViewController.m */,
+				505D415C1DB28EE700A09F39 /* MicrophoneViewController.h */,
+				505D415D1DB28EE700A09F39 /* MicrophoneViewController.m */,
+				0D37F8C41DB28E71009473C7 /* CreateTextViewController.h */,
+				0D37F8C51DB28E71009473C7 /* CreateTextViewController.m */,
+				0D37F8C61DB28E71009473C7 /* CreateTextViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		505D41551DB2819600A09F39 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				505D41561DB281B100A09F39 /* TagManageTableView.h */,
+				505D41571DB281B100A09F39 /* TagManageTableView.m */,
+				505D41621DB28FF500A09F39 /* TagTableViewCell.h */,
+				505D41631DB28FF500A09F39 /* TagTableViewCell.m */,
+				0D37F8C91DB2916D009473C7 /* NowOnTapAnimatingView.h */,
+				0D37F8CA1DB2916D009473C7 /* NowOnTapAnimatingView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		CA442F89F2B959604CC890BB /* Pods */ = {
@@ -227,6 +284,7 @@
 				0D37F8C31DB2567A009473C7 /* PointPeekViewController.xib in Resources */,
 				505D41401DB1DD4B00A09F39 /* LaunchScreen.storyboard in Resources */,
 				505D413D1DB1DD4B00A09F39 /* Assets.xcassets in Resources */,
+				0D37F8C81DB28E71009473C7 /* CreateTextViewController.xib in Resources */,
 				505D41531DB2310C00A09F39 /* Cottons-Light.otf in Resources */,
 				505D413B1DB1DD4B00A09F39 /* Main.storyboard in Resources */,
 			);
@@ -289,12 +347,19 @@
 			files = (
 				9258089F1DB28417007E6248 /* NetworkManager.m in Sources */,
 				0D37F8C21DB2567A009473C7 /* PointPeekViewController.m in Sources */,
+				0D37F8CB1DB2916D009473C7 /* NowOnTapAnimatingView.m in Sources */,
+				0D37F8C71DB28E71009473C7 /* CreateTextViewController.m in Sources */,
 				505D41381DB1DD4B00A09F39 /* ViewController.m in Sources */,
+				505D415E1DB28EE700A09F39 /* MicrophoneViewController.m in Sources */,
 				505D414A1DB210AD00A09F39 /* AJLocationManager.m in Sources */,
 				505D41351DB1DD4B00A09F39 /* AppDelegate.m in Sources */,
+				505D41581DB281B100A09F39 /* TagManageTableView.m in Sources */,
 				505D41321DB1DD4B00A09F39 /* main.m in Sources */,
+				505D415B1DB286E500A09F39 /* CameraViewController.m in Sources */,
+				505D41641DB28FF500A09F39 /* TagTableViewCell.m in Sources */,
 				505D41501DB22F1100A09F39 /* UIView+ViewFrameGeometry.m in Sources */,
 				79AD4CDA1DB25E6200A944ED /* Storage.m in Sources */,
+				505D41611DB28F3C00A09F39 /* DefaultsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
