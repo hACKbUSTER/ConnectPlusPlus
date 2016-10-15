@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 #import <LLSimpleCamera.h>
 #import "UIView+ViewFrameGeometry.h"
+#import "NowOnTapAnimatingView.h"
 
 @interface CameraViewController ()
 
@@ -109,11 +110,18 @@
             _previewImageView.alpha = 0.0f;
             _previewImageView.image = image;
             
-            [UIView animateWithDuration:0.3f animations:^{
+            [UIView animateWithDuration:0.1f animations:^
+            {
                 _previewImageView.alpha = 1.0f;
-            } completion:^(BOOL finished) {
+                self.cancelButton.alpha = 0.0f;
+            } completion:^(BOOL finished)
+            {
+                self.cancelButton.enabled = NO;
                 [camera stop];
                 // 请求 NetworkManager
+                
+                NowOnTapAnimatingView *nowOnTapView = [[NowOnTapAnimatingView alloc] initWithFrame:self.view.frame];
+                [self.view addSubview:nowOnTapView];
             }];
         }
         else {
