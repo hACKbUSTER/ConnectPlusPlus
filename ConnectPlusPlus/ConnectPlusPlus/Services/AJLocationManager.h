@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 typedef void (^LocationBlock)(CLLocationCoordinate2D locationCorrrdinate);
+typedef void (^HeadingBlock)(CLHeading *heading);
 typedef void (^LocationErrorBlock) (NSError *error);
 typedef void(^NSStringBlock)(NSString *cityString);
 typedef void(^NSStringBlock)(NSString *addressString);
@@ -16,10 +17,13 @@ typedef void(^NSStringBlock)(NSString *addressString);
 
 @interface AJLocationManager : NSObject<CLLocationManagerDelegate>
 @property (nonatomic) CLLocationCoordinate2D lastCoordinate;
+@property (nonatomic, strong) CLHeading *lastHeading;
+
 @property(nonatomic,strong)NSString *lastCity;
 @property (nonatomic,strong) NSString *lastAddress;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic, copy) LocationBlock locationBlock;
+@property (nonatomic, copy) HeadingBlock headingBlock;
 
 +(AJLocationManager *)shareLocation;
 -(void)stopLocation;
@@ -31,7 +35,8 @@ typedef void(^NSStringBlock)(NSString *addressString);
  *
  *  @param locaiontBlock locaiontBlock description
  */
-- (void) getLocationCoordinate:(LocationBlock) locaiontBlock;
+- (void) getLocationCoordinate:(LocationBlock) locaiontBlock headingBlock:(HeadingBlock)headingBlock
+;
 - (void) getLocationCoordinate:(LocationBlock) locaiontBlock Address:(NSStringBlock)addressBlock error:(LocationErrorBlock) errorBlock;
 
 /**
@@ -70,4 +75,7 @@ typedef void(^NSStringBlock)(NSString *addressString);
  *  @param errorBlock errorBlock description
  */
 - (void) getCity:(NSStringBlock)cityBlock error:(LocationErrorBlock) errorBlock;
+
+- (void)startLocation;
+
 @end

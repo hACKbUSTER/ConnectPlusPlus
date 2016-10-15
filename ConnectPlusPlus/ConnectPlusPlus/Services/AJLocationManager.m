@@ -33,12 +33,15 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _locationManager=[[CLLocationManager alloc] init];
-        _locationManager.delegate=self;
+//        dispatch_async(dispatch_get_main_queue(), ^{
+            _locationManager=[[CLLocationManager alloc] init];
+            _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            _locationManager.delegate=self;
+            _locationManager.pausesLocationUpdatesAutomatically = NO;
+//        });
         if (IS_OS_8_OR_LATER) {
-            [_locationManager requestWhenInUseAuthorization];
+            [_locationManager requestAlwaysAuthorization];
         }
-        
     }
     return self;
 }
@@ -50,11 +53,13 @@
  *
  *  @param locaiontBlock locaiontBlock description
  */
-- (void) getLocationCoordinate:(LocationBlock) locaiontBlock
+- (void) getLocationCoordinate:(LocationBlock) locaiontBlock headingBlock:(HeadingBlock)headingBlock
 {
     self.locationBlock = locaiontBlock;
+    self.headingBlock = headingBlock;
     [self startLocation];
 }
+
 - (void) getLocationCoordinate:(LocationBlock) locaiontBlock Address:(NSStringBlock)addressBlock error:(LocationErrorBlock) errorBlock
 {
     self.locationBlock = locaiontBlock;
@@ -98,16 +103,46 @@
 
 -(void)startLocation
 {
+    NSLog(@"startLocation");
+//    _locationManager.delegate = self;
     [_locationManager startUpdatingLocation];
+    [_locationManager startUpdatingHeading];
 }
 
 -(void)stopLocation
 {
     [_locationManager stopUpdatingLocation];
+    [_locationManager stopUpdatingHeading];
 }
 
 
 #pragma mark - CCLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"fuck");
+}
+
+- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error
+{
+    NSLog(@"fuck");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
+{
+    self.lastHeading = newHeading;
+    NSLog(@"update heading: %f",newHeading.trueHeading);
+    
+    if (self.headingBlock) {
+        self.headingBlock(newHeading);
+    }
+    [manager startUpdatingHeading];
+}
+
+- (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager{
+    return YES;
+}
+
 //当用户改变位置的时候，CLLocationManager回调的方法
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {

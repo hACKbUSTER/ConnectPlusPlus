@@ -13,6 +13,8 @@
 @import Mapbox;
 
 @interface ViewController () <MGLMapViewDelegate>
+{
+}
 
 @property (nonatomic, strong) MGLMapView *mapView;
 @property (nonatomic)         CLLocationCoordinate2D currentLocation;
@@ -27,6 +29,9 @@
 
 @property (nonatomic, strong) UIView *topBarView;
 @property (nonatomic, strong) UILabel *topBarTitleView;
+
+@property (nonatomic, strong) MGLAnnotationView *currentPointView;
+@property (nonatomic, strong) CLHeading *cachedHeading;
 
 @end
 
@@ -46,26 +51,36 @@
     // Set the delegate property of our map view to `self` after instantiating it.
     _mapView.delegate = self;
 
+    _mapView.userTrackingMode = MGLUserTrackingModeFollowWithHeading;
     _mapView.scrollEnabled = YES;
     _mapView.zoomEnabled = NO;
     _mapView.rotateEnabled = NO;
     
     __weak typeof(self) weakSelf = self;
     // Set the map’s center coordinate and zoom level.
-    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(59.31, 18.06)
-                       zoomLevel:1 direction:0 animated:YES completionHandler:^{
-                           weakSelf.currentUserAnnotation = [[MGLPointAnnotation alloc] init];
-                           weakSelf.currentUserAnnotation.coordinate = weakSelf.currentLocation;
-                           [weakSelf.mapView addAnnotation:weakSelf.currentUserAnnotation];
-                           
-                           [[AJLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
-                               weakSelf.currentLocation = CLLocationCoordinate2DMake(locationCorrrdinate.latitude, locationCorrrdinate.longitude);
-                               [weakSelf.mapView setCenterCoordinate:weakSelf.currentLocation
-                                                   zoomLevel:15
-                                                    animated:YES];
-                               weakSelf.currentUserAnnotation.coordinate = locationCorrrdinate;
-                           }];
-                       }];
+//    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(59.31, 18.06)
+//                       zoomLevel:1 direction:0 animated:YES completionHandler:^{
+//                           weakSelf.currentUserAnnotation = [[MGLPointAnnotation alloc] init];
+//                           weakSelf.currentUserAnnotation.coordinate = weakSelf.currentLocation;
+//                           [weakSelf.mapView addAnnotation:weakSelf.currentUserAnnotation];
+//                           
+//                           [[AJLocationManager shareLocation] getLocationCoordinate:^(CLLocationCoordinate2D locationCorrrdinate) {
+//                               NSLog(@"fuck!");
+//                               weakSelf.currentLocation = CLLocationCoordinate2DMake(locationCorrrdinate.latitude, locationCorrrdinate.longitude);
+//                               [weakSelf.mapView setCenterCoordinate:weakSelf.currentLocation
+//                                                   zoomLevel:15
+//                                                    animated:YES];
+//                               weakSelf.currentUserAnnotation.coordinate = locationCorrrdinate;
+//                           } headingBlock:^(CLHeading *heading) {
+//                               weakSelf.cachedHeading = heading;
+//                               CGFloat degrees = fabs(180.0f - heading.trueHeading);
+//                               NSLog(@"fuck!! %f",degrees);
+//                               if (weakSelf.currentPointView) {
+//                                   weakSelf.currentPointView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, degrees/360.0f * M_PI);
+//                               }
+//                               
+//                           }];
+//                       }];
     
     [self.view addSubview:_mapView];
     
@@ -104,6 +119,15 @@
     _topBarTitleView.center = CGPointMake(_topBarView.center.x, _topBarTitleView.center.y);
     
     [_topBarView addSubview:_topBarTitleView];
+    
+    UIImageView *profileImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20.0f, 35.0f, 30.0f, 30.0f)];
+    profileImageView.image = [UIImage imageNamed:@"Profile"];
+    profileImageView.layer.cornerRadius = 15.0f;
+    profileImageView.layer.masksToBounds = YES;
+    profileImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    profileImageView.layer.borderWidth = 1.0f;
+    
+    [_topBarView addSubview:profileImageView];
     [self.view addSubview:_topBarView];
 }
 
@@ -139,48 +163,34 @@
 
 #pragma mark - MGLMapViewDelegate Methods
 
+- (void)mapView:(MGLMapView *)mapView didUpdateUserLocation:(nullable MGLUserLocation *)userLocation
+{
+    self.currentLocation = userLocation.location.coordinate;
+    NSLog(@"$$$%f",userLocation.heading.trueHeading);
+}
+
 // 这里是所见区域更新的回调方法，需要在这里重新请求界面上的数据点
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
     _currentVisibleBounds = mapView.visibleCoordinateBounds;
     
-//    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((mapView.visibleCoordinateBounds.ne.latitude + mapView.visibleCoordinateBounds.sw.latitude)/2.0f, (mapView.visibleCoordinateBounds.ne.longitude + mapView.visibleCoordinateBounds.sw.longitude)/2.0f);
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((mapView.visibleCoordinateBounds.ne.latitude + mapView.visibleCoordinateBounds.sw.latitude)/2.0f, (mapView.visibleCoordinateBounds.ne.longitude + mapView.visibleCoordinateBounds.sw.longitude)/2.0f);
     
-    NSLog(@"regionDidChange!");
+    NSLog(@"regionDidChange! : %f,%f",center.latitude,center.longitude);
+    
+//    [[AJLocationManager shareLocation] startLocation];
+}
+
+- (void)mapViewDidFinishRenderingFrame:(MGLMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    if (fullyRendered) {
+//        [[AJLocationManager shareLocation] startLocation];
+    }
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
 {
-    MGLPointAnnotation *item = (MGLPointAnnotation *)annotation;
-
-    if ([item.title isEqualToString:@"TAG"]) {
-        // Try to reuse the existing ‘pisa’ annotation image, if it exists.
-        return nil;
-    }
-    
-    // Try to reuse the existing ‘pisa’ annotation image, if it exists.
-    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"marker"];
-    
-    // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here.
-    if (!annotationImage)
-    {
-        // Leaning Tower of Pisa by Stefan Spieler from the Noun Project.
-        UIImage *image = [UIImage imageNamed:@"marker"];
-        
-        // The anchor point of an annotation is currently always the center. To
-        // shift the anchor point to the bottom of the annotation, the image
-        // asset includes transparent bottom padding equal to the original image
-        // height.
-        //
-        // To make this padding non-interactive, we create another image object
-        // with a custom alignment rect that excludes the padding.
-        image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
-        
-        // Initialize the ‘pisa’ annotation image with the UIImage we just loaded.
-        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"marker"];
-    }
-    
-    return annotationImage;
+    return nil;
 }
 
 // Use the default marker. See also: our view annotation or custom marker examples.
@@ -193,7 +203,31 @@
     MGLPointAnnotation *item = (MGLPointAnnotation *)annotation;
     
     if (![item.title isEqualToString:@"TAG"]) {
-        return nil;
+        NSString *reuseIdentifier = [NSString stringWithFormat:@"marker_%f", annotation.coordinate.longitude];
+
+        MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+        
+        if (!annotationView) {
+            annotationView = [[MGLAnnotationView alloc] initWithReuseIdentifier:reuseIdentifier];
+            annotationView.frame = CGRectMake(0, 0, 20, 20);
+            annotationView.layer.masksToBounds = NO;
+            annotationView.layer.anchorPoint = CGPointMake(0.5f, 0.0f);
+            
+            UIImage *image = [UIImage imageNamed:@"marker"];
+            image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
+            imageView.image = image;
+            imageView.contentMode = UIViewContentModeCenter;
+            
+            [annotationView addSubview:imageView];
+        }
+        
+        CGFloat degrees = fabs(180.0f - self.cachedHeading.trueHeading);
+        annotationView.transform = CGAffineTransformRotate(CGAffineTransformIdentity, degrees/360.0f * M_PI);
+
+        self.currentPointView = annotationView;
+        return annotationView;
     }
     
     // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
