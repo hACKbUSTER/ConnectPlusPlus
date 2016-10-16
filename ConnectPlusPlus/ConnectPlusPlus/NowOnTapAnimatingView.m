@@ -23,6 +23,7 @@
 @property (nonatomic,strong) UIButton *cancelButton;
 @property (nonatomic,strong) UIButton *confirmButton;
 
+
 @property (nonatomic) NSMutableArray *tagsData;
 
 @end

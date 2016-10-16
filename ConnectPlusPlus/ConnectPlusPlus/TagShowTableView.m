@@ -11,7 +11,7 @@
 #import "NetworkManager.h"
 
 @interface TagShowTableView ()<UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic,strong) UIActivityIndicatorView * loadingIndicator;
 @end
 
 @implementation TagShowTableView
@@ -31,6 +31,14 @@
         self.delegate = self;
         self.dataSource = self;
         
+        _loadingIndicator = [[UIActivityIndicatorView alloc]
+                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _loadingIndicator.frame = CGRectMake(0, 0, 40, 40);
+        _loadingIndicator.center = self.center;
+//        [_loadingIndicator startAnimating];
+                _loadingIndicator.hidesWhenStopped = YES;
+        [self addSubview:_loadingIndicator];
+        
         
         self.nowOnTapView = view;
         
@@ -38,12 +46,14 @@
         // NETWORK TASK
         if (self.nowOnTapView.sourceImage)
         {
+            [_loadingIndicator startAnimating];
             [[NetworkManager sharedManager] getJSONWithImageData:UIImageJPEGRepresentation(self.nowOnTapView.sourceImage, 0.7f) success:^(id obj)
              {
                  _tagsData = [obj objectForKey:@"tags"];
                  _categoriesData = [obj objectForKey:@"categories"];
                  if (_tagsData || _categoriesData)
                  {
+                     [_loadingIndicator stopAnimating];
                      [self reloadData];
                  }
              } failure:^(NSError *err)

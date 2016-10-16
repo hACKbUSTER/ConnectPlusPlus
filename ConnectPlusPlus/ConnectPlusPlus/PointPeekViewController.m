@@ -76,6 +76,8 @@
         self.tagTextView.text = [self.tagTextView.text stringByAppendingString:[NSString stringWithFormat:@"#%@\n",str]];
     }
     
+    self.timeAgoLabel.text = [NSString stringWithFormat:@"%d Minute(s) Ago",arc4random() % 5];
+    
     
     
 }

@@ -40,7 +40,7 @@
 // Annotation views
 @property (nonatomic, strong) NSMutableArray *markerViewArray;
 
-@property (nonatomic, strong) UIView *bottomToolBarView;
+@property (nonatomic, strong) UIVisualEffectView *bottomToolBarView;
 
 @property (nonatomic, strong) UIButton *bottomToolBarCameraButton;
 @property (nonatomic, strong) UIButton *bottomToolBarMicroButton;
@@ -96,16 +96,18 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     [_mapView addGestureRecognizer:tap];
     
-    _bottomToolBarView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, ScreenHeight - 55.0f, ScreenWidth, 55.0f)];
-    _bottomToolBarView.backgroundColor = [UIColor blackColor];
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    _bottomToolBarView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    _bottomToolBarView.frame = CGRectMake(0.0f, ScreenHeight - 55.0f, ScreenWidth, 55.0f);
     
-    _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 110.0f, 7.5f, 40.0f, 40.0f)];
+    _bottomToolBarCameraButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 120.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarCameraButton.backgroundColor = [UIColor clearColor];
     [_bottomToolBarCameraButton setImage:[UIImage imageNamed:@"camera1"] forState:UIControlStateNormal];
     [_bottomToolBarCameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
     
-    _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
+    _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 60.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarMicroButton.backgroundColor = [UIColor clearColor];
     [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"micphone"] forState:UIControlStateNormal];
     [_bottomToolBarMicroButton addTarget:self action:@selector(microButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

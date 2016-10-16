@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIVisualEffectView *blurView;
 @property (nonatomic, strong) UITableView *tagTableView;
 @property (nonatomic, strong) TagTableViewFooter *footerView;
+
 @end
 
 @implementation TagManageTableView
