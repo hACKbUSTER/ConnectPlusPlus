@@ -303,7 +303,7 @@
 //        [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
 //        [_markerArray removeObjectAtIndex:0];
 //    }
-    [self addingFakeMessages];
+//    [self addingFakeMessages];
 }
 
 - (void)addButtonPressed:(id)sender
@@ -427,13 +427,13 @@
     }
     
     MGLPointAnnotation *item = (MGLPointAnnotation *)annotation;
-    NSString *imageName = @"point_car";
-    if ([item.title isEqualToString:@"aaa"]) {
+    NSString *imageName = @"point_default";
+    if ([item.title isEqualToString:@"weather"]) {
         imageName = @"point_cloud";
-    } else if ([item.title isEqualToString:@"bbb"]) {
-        imageName = @"point_flower";
-    } else if ([item.title isEqualToString:@"ccc"]) {
-        imageName = @"point_plane";
+    } else if ([item.title isEqualToString:@"traffic"]) {
+        imageName = @"point_car";
+    } else if ([item.title isEqualToString:@"sports"]) {
+        imageName = @"point_sport";
     }
     
     // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
