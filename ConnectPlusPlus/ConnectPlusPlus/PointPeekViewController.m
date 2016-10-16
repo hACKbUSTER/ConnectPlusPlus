@@ -56,6 +56,22 @@
     }
     
     NSArray *tags = [self.messageDict objectForKey:@"tags"];
+    
+    NSString *imageName = @"point_default";
+    NSString *mainTag = [tags objectAtIndex:0];
+    if ([mainTag isEqualToString:@"weather"]) {
+        imageName = @"point_cloud";
+    } else if ([mainTag isEqualToString:@"traffic"]) {
+        imageName = @"point_car";
+    } else if ([mainTag isEqualToString:@"sports"]) {
+        imageName = @"point_sport";
+    } else if ([mainTag isEqualToString:@"lost_and_found"]) {
+        imageName = @"point_laf";
+    } else if ([mainTag isEqualToString:@"accident"]) {
+        imageName = @"point_accident";
+    }
+    self.categoryImageView.image = [UIImage imageNamed:imageName];
+    
     for (NSString *str in tags)
     {
         self.tagTextView.text = [self.tagTextView.text stringByAppendingString:[NSString stringWithFormat:@"#%@\n",str]];

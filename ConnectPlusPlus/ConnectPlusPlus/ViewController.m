@@ -434,6 +434,10 @@
         imageName = @"point_car";
     } else if ([item.title isEqualToString:@"sports"]) {
         imageName = @"point_sport";
+    } else if ([item.title isEqualToString:@"lost_and_found"]) {
+        imageName = @"point_laf";
+    } else if ([item.title isEqualToString:@"accident"]) {
+        imageName = @"point_accident";
     }
     
     // Use the point annotation’s longitude value (as a string) as the reuse identifier for its view.
