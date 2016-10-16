@@ -52,6 +52,7 @@
         textView.text = [NSString stringWithFormat:@"\" %@ \"",text];
         textView.textColor = [UIColor whiteColor];
         textView.backgroundColor = [UIColor clearColor];
+        textView.editable = NO;
         textView.font = [UIFont systemFontOfSize:60.0f weight:100.0f];
         [self.connetContentView addSubview:textView];
 
