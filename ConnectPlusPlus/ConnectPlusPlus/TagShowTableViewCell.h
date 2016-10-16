@@ -19,4 +19,5 @@
 - (void)setTagString:(NSString*)tagString;
 - (void)setIsAdded:(BOOL)isAdded;
 
+
 @end

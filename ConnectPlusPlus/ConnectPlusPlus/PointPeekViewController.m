@@ -20,7 +20,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
     BOOL hasImage = [[self.messageDict objectForKey:@"hasImage"] boolValue];
     if (hasImage)
     {
@@ -88,6 +87,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setIsPreviewing:(BOOL)isPreviewing
+{
+    _isPreviewing = isPreviewing;
+    if (_isPreviewing)
+    {
+        _tagTextView.alpha = 0.0f;
+        _categoryImageView.alpha = 0.0f;
+    }else
+    {
+        _tagTextView.alpha = 1.0f;
+        _categoryImageView.alpha = 1.0f;
+    }
 }
 
 /*

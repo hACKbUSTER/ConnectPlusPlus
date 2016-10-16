@@ -367,7 +367,9 @@
                 PointPeekViewController *peek = [[PointPeekViewController alloc] init];
                 peek.messageDict = messageDict;
                 
+                
                 peek.view.frame = self.view.frame;
+                peek.isPreviewing = true;
                 
                 return peek;
             }
@@ -380,6 +382,8 @@
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
      commitViewController:(UIViewController *)viewControllerToCommit
 {
+    PointPeekViewController *peek = (PointPeekViewController *)viewControllerToCommit;
+    peek.isPreviewing = false;
     [self showViewController:viewControllerToCommit sender:self];
 }
 

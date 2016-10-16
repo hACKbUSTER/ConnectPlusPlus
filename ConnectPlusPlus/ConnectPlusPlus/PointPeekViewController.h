@@ -16,5 +16,7 @@
 
 @property (nonatomic, strong) NSDictionary *messageDict;
 
+@property (nonatomic, setter=setIsPreviewing:) BOOL isPreviewing;
 
+- (void)setIsPreviewing:(BOOL)isPreviewing;
 @end
