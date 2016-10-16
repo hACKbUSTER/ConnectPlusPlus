@@ -59,7 +59,7 @@
              } failure:^(NSError *err)
              {
                  //WHO CARES ERROR
-//                 NSLog(err.debugDescription);
+               NSLog(@"%@",err.debugDescription);
              }];
         }else if (self.nowOnTapView.sourceText)
         {

@@ -107,7 +107,7 @@
     [_bottomToolBarCameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolBarView addSubview:_bottomToolBarCameraButton];
     
-    _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 60.0f, 7.5f, 40.0f, 40.0f)];
+    _bottomToolBarMicroButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenWidth - 50.0f, 7.5f, 40.0f, 40.0f)];
     _bottomToolBarMicroButton.backgroundColor = [UIColor clearColor];
     [_bottomToolBarMicroButton setImage:[UIImage imageNamed:@"micphone"] forState:UIControlStateNormal];
     [_bottomToolBarMicroButton addTarget:self action:@selector(microButtonPressed:) forControlEvents:UIControlEventTouchUpInside];

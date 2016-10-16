@@ -39,7 +39,10 @@
             return image;
         } completion:^(UIImage * _Nullable image, NSURL * _Nonnull url, YYWebImageFromType from, YYWebImageStage stage, NSError * _Nullable error)
         {
-            
+            if (error)
+            {
+                NSLog(@"%@",[error debugDescription]);
+            }
         }];
     }else
     {
