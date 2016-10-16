@@ -303,7 +303,7 @@
 //        [self.mapView removeAnnotation:[_markerArray objectAtIndex:0]];
 //        [_markerArray removeObjectAtIndex:0];
 //    }
-    [self addingFakeMessages];
+//    [self addingFakeMessages];
 }
 
 - (void)addButtonPressed:(id)sender
