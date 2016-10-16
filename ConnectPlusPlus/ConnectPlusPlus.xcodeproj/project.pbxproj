@@ -314,7 +314,7 @@
 				TargetAttributes = {
 					505D412C1DB1DD4B00A09F39 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9QJ8M25J77;
+						DevelopmentTeam = Q8H99663FH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -547,7 +547,7 @@
 			baseConfigurationReference = CC3E13DB93BF294E7871C7E2 /* Pods-ConnectPlusPlus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9QJ8M25J77;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,7 +567,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9AA6EB9CE0A5E0475A76E0B5 /* Pods-ConnectPlusPlus.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9QJ8M25J77;
+				DEVELOPMENT_TEAM = Q8H99663FH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
