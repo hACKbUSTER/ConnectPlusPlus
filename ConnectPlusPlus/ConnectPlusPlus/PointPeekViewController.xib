@@ -51,14 +51,14 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obj-yW-IuA">
-                                <rect key="frame" x="56" y="383" width="311" height="223"/>
+                                <rect key="frame" x="56" y="342" width="311" height="264"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idR-oc-ngF">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareline" translatesAutoresizingMaskIntoConstraints="NO" id="0mb-zP-vHS">
@@ -68,7 +68,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point_car" translatesAutoresizingMaskIntoConstraints="NO" id="8LM-Wa-9Qw">
-                                <rect key="frame" x="8" y="391" width="40" height="40"/>
+                                <rect key="frame" x="8" y="350" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="neY-7K-kM1"/>
                                     <constraint firstAttribute="height" constant="40" id="ubM-50-JDY"/>
@@ -88,7 +88,7 @@
                             <constraint firstAttribute="trailing" secondItem="0mb-zP-vHS" secondAttribute="trailing" id="csE-ZH-o97"/>
                             <constraint firstItem="v8b-VB-sZu" firstAttribute="top" secondItem="0mb-zP-vHS" secondAttribute="bottom" constant="2" id="dWa-6W-is0"/>
                             <constraint firstItem="obj-yW-IuA" firstAttribute="top" secondItem="idR-oc-ngF" secondAttribute="bottom" constant="8" id="fcj-OV-mpm"/>
-                            <constraint firstItem="idR-oc-ngF" firstAttribute="height" secondItem="FoM-Ka-Rcm" secondAttribute="height" multiplier="0.5" constant="41.5" id="hhI-GT-BFy"/>
+                            <constraint firstItem="idR-oc-ngF" firstAttribute="height" secondItem="FoM-Ka-Rcm" secondAttribute="height" multiplier="0.5" id="hhI-GT-BFy"/>
                             <constraint firstItem="0mb-zP-vHS" firstAttribute="top" secondItem="obj-yW-IuA" secondAttribute="bottom" constant="8" id="j54-Qg-eWe"/>
                             <constraint firstItem="idR-oc-ngF" firstAttribute="top" secondItem="FoM-Ka-Rcm" secondAttribute="top" id="nj3-DW-WXE"/>
                             <constraint firstItem="obj-yW-IuA" firstAttribute="leading" secondItem="8LM-Wa-9Qw" secondAttribute="trailing" constant="8" id="sWa-U0-maR"/>

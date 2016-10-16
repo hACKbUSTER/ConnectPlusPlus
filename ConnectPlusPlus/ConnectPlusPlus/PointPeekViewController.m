@@ -26,7 +26,9 @@
     {
         NSString *url = [self.messageDict objectForKey:@"image"];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.connetContentView.frame];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
         [self.connetContentView addSubview:imageView];
+//        imageView.layer.masksToBounds= YES;
         
         [imageView yy_setImageWithURL:[NSURL URLWithString:url] placeholder:nil options:YYWebImageOptionProgressiveBlur | YYWebImageOptionSetImageWithFadeAnimation progress:^(NSInteger receivedSize, NSInteger expectedSize)
         {
@@ -54,7 +56,7 @@
     NSArray *tags = [self.messageDict objectForKey:@"tags"];
     for (NSString *str in tags)
     {
-        self.tagTextView.text = [self.tagTextView.text stringByAppendingString:[NSString stringWithFormat:@"%@\n",str]];
+        self.tagTextView.text = [self.tagTextView.text stringByAppendingString:[NSString stringWithFormat:@"#%@\n",str]];
     }
     
     
